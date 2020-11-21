@@ -12,7 +12,7 @@
           <a href="/ide" title="Live IDE">Live IDE</a> &nbsp;&nbsp;-&nbsp;&nbsp;
           <a href="/faq" title="Câu hỏi thường gặp">FAQ</a> &nbsp;&nbsp;-&nbsp;&nbsp;
           <a href="/judger" title="Thông tin máy chấm">Trình chấm</a> &nbsp;&nbsp;-&nbsp;&nbsp;
-          <a href="/about" title="Về chúng tôi">About</a>
+          <a href="/about" title="Về chúng tôi">Giới thiệu</a>
         </div>
         <p> Copyright © 2020 <a href="/">Luyện Code Online</a> &nbsp;-&nbsp; Powered by <a target="_blank" rel="nofollow noopener noreferrer" href="https://github.com/QingdaoU/OnlineJudge">OnlineJudge</a></p>
       </div>

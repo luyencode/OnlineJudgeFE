@@ -21,6 +21,7 @@ export const m = {
   Tags: 'Tags',
   Show: 'Hiện',
   Submit: 'Nộp bài',
+  Details: 'Chi tiết',
   Submitting: 'Đang nộp',
   Judging: 'Đang chấm',
   Wrong_Answer: 'Wrong Answer',
