@@ -469,10 +469,25 @@
           return
         }
         let fileList = response.data.info
-        for (let file of fileList) {
-          file.score = (100 / fileList.length).toFixed(0)
-          if (!file.output_name && this.problem.spj) {
-            file.output_name = '-'
+        let problemScore = 100
+        if (this.problem.difficulty === 'Mid') {
+          problemScore = 150
+        } else if (this.problem.difficulty === 'High') {
+          problemScore = 300
+        }
+        let totalTC = fileList.length
+        let eachTestScore = Math.max(1, Math.floor(problemScore / totalTC))
+        let remainScore = problemScore % totalTC
+        if (totalTC * eachTestScore >= problemScore) {
+          remainScore = 0
+        }
+        for (let i = 0; i < totalTC; i++) {
+          fileList[i].score = (eachTestScore).toFixed(0)
+          if (totalTC - i <= remainScore) {
+            fileList[i].score = (eachTestScore + 1).toFixed(0)
+          }
+          if (!fileList[i].output_name && this.problem.spj) {
+            fileList[i].output_name = '-'
           }
         }
         this.problem.test_case_score = fileList
