@@ -18,13 +18,13 @@
           </div>
           <div>
             Quy đổi danh hiệu:
-            <p>0 - 99 điểm: <Tag color="#636e72" style="margin-right:-15px;">Newbie</Tag></p>
-            <p>100 - 199 điểm: <Tag color="blue" style="margin-right:-15px;">Interns</Tag></p>
-            <p>200 - 499 điểm: <Tag color="#6c5ce7" style="margin-right:-15px;">Fresher</Tag></p>
-            <p>500 - 999 điểm: <Tag color="#1dd1a1" style="margin-right:-15px;">Senior</Tag></p>
-            <p>1000 - 4999 điểm: <Tag color="#ff9f43" style="margin-right:-15px;">Master</Tag></p>
-            <p>5000 - 9999 điểm: <Tag color="#ee5253" style="margin-right:-15px;">Ph.D</Tag></p>
-            <p>10000 - ∞ điểm: <Tag color="#222f3e" style="margin-right:-15px;">Professor</Tag></p>
+            <p>0 - 99 điểm: <Tag color="gray" style="margin-right:-15px;">Newbie</Tag></p>
+            <p>100 - 199 điểm: <Tag color="green" style="margin-right:-15px;">Pupil</Tag></p>
+            <p>200 - 499 điểm: <Tag color="green" style="margin-right:-15px;">Specialist</Tag></p>
+            <p>500 - 999 điểm: <Tag color="blue" style="margin-right:-15px;">Expert</Tag></p>
+            <p>1000 - 4999 điểm: <Tag color="#a0a" style="margin-right:-15px;">Candidate master</Tag></p>
+            <p>5000 - 9999 điểm: <Tag color="#FF8C00" style="margin-right:-15px;">Master</Tag></p>
+            <p>Từ hơn 9999 điểm: <Tag color="red" style="margin-right:-15px;">Grandmaster</Tag></p>
             <p>Chúng tôi chia làm 6 cấp danh hiệu, từ 0 - 6 và mỗi danh hiệu này sẽ có tiêu đề riêng</p>
           </div>
         </li>

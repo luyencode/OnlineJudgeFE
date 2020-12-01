@@ -133,36 +133,36 @@ export const USER_GRADE = {
   '0': {
     name: 'Newbie',
     short: '0',
-    color: '#636e72'
+    color: 'gray'
   },
   '1': {
-    name: 'Interns',
+    name: 'Pupil',
     short: '1',
-    color: 'blue'
+    color: 'green'
   },
   '2': {
-    name: 'Fresher',
+    name: 'Specialist',
     short: '2',
-    color: '#6c5ce7'
+    color: 'green'
   },
   '3': {
-    name: 'Senior',
+    name: 'Expert',
     short: '3',
-    color: '#1dd1a1'
+    color: 'blue'
   },
   '4': {
-    name: 'Master',
+    name: 'Candidate master',
     short: '4',
-    color: '#ff9f43'
+    color: '#a0a'
   },
   '5': {
-    name: 'Ph.D',
+    name: 'Master',
     short: '5',
-    color: '#ee5253'
+    color: '#FF8C00 '
   },
   '6': {
-    name: 'Professor',
+    name: 'Grandmaster',
     short: '6',
-    color: '#222f3e'
+    color: 'red'
   }
 }
