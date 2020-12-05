@@ -8,7 +8,9 @@
       </transition>
       <div class="footer">
         <!-- <p v-html="website.website_footer"></p> -->
-        <div class="menu">
+        <p><strong>Luyện Code Online</strong> là website thực hành lập trình trực tuyến miễn phí với vô vàn <a href="/problem">bài tập</a>  ở đa dạng thể loại khác nhau.<br/>Bao gồm <a href="/problem?tag=cơ%20bản&page=1">bài tập cơ bản</a>, bài tập <a href="/problem?tag=%C4%91i%E1%BB%81u%20khi%E1%BB%83n&page=1">cấu trúc điều khiển</a>, các <a href="/problem?tag=vòng%20lặp&page=1">bài tập vòng lặp</a>, bài tập mảng (<a href="/problem?tag=mảng%201%20chiều&page=1">mảng 1 chiều</a>, <a href="/problem?tag=mảng%202%20chiều&page=1">mảng 2 chiều</a>, <a href="/problem?tag=chu%E1%BB%97i&page=1">bài tập chuỗi</a>), ...<br/>Bài tập cấu trúc dữ liệu (<a href="/problem?tag=ngăn%20xếp&page=1">ngăn xếp</a>, <a href="/problem?tag=hàng%20đợi&page=1">hàng đợi</a>, <a href="https://luyencode.net/problem?tag=b%E1%BA%A3ng%20b%C4%83m&page=1">bảng băm</a>, ...) và giải thuật (<a href="/problem?tag=s%E1%BA%AFp%20x%E1%BA%BFp&page=1">sắp xếp</a>, <a href="/problem?tag=chặt%20nhị%20phân&page=1">tìm kiếm</a>, <a href="/problem?tag=QH%C4%90&page=1">quy hoạch động</a>, ...) cùng nhiều bài tập nâng cao khác.</p>
+        
+        <div class="menu" style="margin-top: 10px;">
           <a href="/ide" title="Live IDE">Live IDE</a> &nbsp;&nbsp;-&nbsp;&nbsp;
           <a href="/faq" title="Câu hỏi thường gặp">FAQ</a> &nbsp;&nbsp;-&nbsp;&nbsp;
           <a href="/judger" title="Thông tin máy chấm">Trình chấm</a> &nbsp;&nbsp;-&nbsp;&nbsp;

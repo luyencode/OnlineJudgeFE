@@ -21,7 +21,8 @@ npm install
 # we use webpack DllReference to decrease the build time,
 # this command only needs execute once unless you upgrade the package in build/webpack.dll.conf.js
 NODE_ENV=development npm run build:dll
-
+# Small language fixed
+cp node_modules/echarts/lib/langEN.js node_modules/echarts/lib/lang.js 
 # the dev-server will set proxy table to your backend
 export TARGET=http://Your-backend
 

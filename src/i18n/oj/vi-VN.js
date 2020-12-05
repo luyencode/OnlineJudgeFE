@@ -19,6 +19,7 @@ export const m = {
   Level: 'Mức',
   Score: 'Điểm',
   Tags: 'Tags',
+  TagsTitle: 'Phân loại bài tập',
   Show: 'Hiện',
   Submit: 'Nộp bài',
   Details: 'Chi tiết',

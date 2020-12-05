@@ -16,8 +16,8 @@ function submissionTimeFormat (time) {
 }
 
 function getACRate (acCount, totalCount) {
-  let rate = totalCount === 0 ? 0.00 : (acCount / totalCount * 100).toFixed(2)
-  return String(rate) + '%'
+  let rate = totalCount === 0 ? '0.00' : (acCount / totalCount * 100).toFixed(2)
+  return rate + '%'
 }
 
 // 去掉值为空的项，返回object

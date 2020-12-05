@@ -20,6 +20,7 @@ export const m = {
   Level: 'Level',
   Score: 'Score',
   Tags: 'Tags',
+  TagsTitle: 'Problem categories',
   Details: 'Details',
   Show: 'Show',
   Submit: 'Submit',

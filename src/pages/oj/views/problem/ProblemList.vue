@@ -51,7 +51,7 @@
 
     <Col :span="5">
     <Panel :padding="10">
-      <div slot="title" class="taglist-title">{{$t('m.Tags')}}</div>
+      <div slot="title" class="taglist-title">{{$t('m.TagsTitle')}}</div>
       <Button long id="pick-one" @click="pickone">
         <Icon type="shuffle"></Icon>
         {{$t('m.Pick_One')}}
@@ -90,9 +90,9 @@
         tagList: [],
         problemTableColumns: [
           {
-            title: '#',
+            title: 'ID',
             key: '_id',
-            width: 98,
+            width: 150,
             render: (h, params) => {
               return h('Button', {
                 props: {
@@ -148,11 +148,14 @@
             }
           },
           {
+            sortable: true,
             title: this.$i18n.t('m.Total'),
             key: 'submission_number'
           },
           {
+            sortable: true,
             title: this.$i18n.t('m.AC_Rate'),
+            key: 'ac_rate',
             render: (h, params) => {
               return h('span', this.getACRate(params.row.accepted_number, params.row.submission_number))
             }
@@ -206,6 +209,10 @@
           this.loadings.table = false
           this.total = res.data.data.total
           this.problemList = res.data.data.results
+          for (let i = 0; i < this.problemList.length; i++) {
+            this.problemList[i].ac_rate = this.problemList[i].submission_number === 0 ? 0.00 : (this.problemList[i].accepted_number / this.problemList[i].submission_number * 100)
+          }
+          console.log(this.problemList[0])
           if (this.isAuthenticated) {
             this.addStatusColumn(this.problemTableColumns, res.data.data.results)
           }
