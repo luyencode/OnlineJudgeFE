@@ -92,7 +92,7 @@
           {
             title: 'ID',
             key: '_id',
-            width: 150,
+            width: 120,
             render: (h, params) => {
               return h('Button', {
                 props: {
@@ -212,7 +212,6 @@
           for (let i = 0; i < this.problemList.length; i++) {
             this.problemList[i].ac_rate = this.problemList[i].submission_number === 0 ? 0.00 : (this.problemList[i].accepted_number / this.problemList[i].submission_number * 100)
           }
-          console.log(this.problemList[0])
           if (this.isAuthenticated) {
             this.addStatusColumn(this.problemTableColumns, res.data.data.results)
           }
