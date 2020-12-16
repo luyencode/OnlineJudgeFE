@@ -109,8 +109,8 @@
         <h3 style="font-size: 20px;">Bình luận</h3>
         <ul style="margin-left: 30px;">
           <li>Thảo luận trên tinh thần giúp nhau cùng tiến bộ</li>
-          <li>Không hỏi xin hoặc chia sẻ lời giải của bài tập tại đây</li>
-          <li>Không quảng cáo, spam tại mục này</li>
+          <li>Không xin hoặc chia sẻ đáp án của bài tập</li>
+          <li>Không đăng các nội dung quảng cáo, spam</li>
         </ul>
         <script type="application/javascript" src="https://utteranc.es/client.js" repo="luyencode/comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
       </Card>
