@@ -1,3 +1,9 @@
+<style>
+  .utterances {
+      max-width: 100%;
+      width: 100%;
+  }
+</style>
 <template>
   <div class="flex-container">
     <div id="problem-main">
@@ -98,6 +104,15 @@
             </Button>
           </Col>
         </Row>
+      </Card>
+      <Card :padding="20" dis-hover>
+        <h3 style="font-size: 20px;">Bình luận</h3>
+        <ul style="margin-left: 30px;">
+          <li>Thảo luận trên tinh thần giúp nhau cùng tiến bộ</li>
+          <li>Không hỏi xin hoặc chia sẻ lời giải của bài tập tại đây</li>
+          <li>Không quảng cáo, spam tại mục này</li>
+        </ul>
+        <script type="application/javascript" src="https://utteranc.es/client.js" repo="luyencode/comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
       </Card>
     </div>
 
