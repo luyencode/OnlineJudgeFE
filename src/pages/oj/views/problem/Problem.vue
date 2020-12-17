@@ -142,7 +142,7 @@
       <Card id="info">
         <div slot="title" class="header">
           <Icon type="information-circled"></Icon>
-          <span class="card-title">{{$t('m.Information')}}</span>
+          <span class="card-title">{{$t('m.Information_Problem')}}</span>
         </div>
         <ul>
           <li><p>ID</p>
@@ -153,7 +153,6 @@
           <li>
             <p>{{$t('m.Memory_Limit')}}</p>
             <p>{{problem.memory_limit}}MB</p></li>
-          <li>
           <li>
             <p>{{$t('m.IOMode')}}</p>
             <p>{{problem.io_mode.io_mode}}</p>
@@ -194,6 +193,9 @@
           <ECharts :options="pie"></ECharts>
         </div>
       </Card>
+      <!-- LuyenCode_Sidebar -->
+      <ins class="adsbygoogle" style="display:block; max-width: 300px;min-height: 300px;margin-top: 30px;" data-ad-client="ca-pub-5101718850050799" data-ad-slot="6898080101" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <ins class="adsbygoogle" style="display:block; max-width: 300px;min-height: 300px;margin-top: 30px;" data-ad-client="ca-pub-5101718850050799" data-ad-slot="1422392145" data-ad-format="auto" data-full-width-responsive="true"></ins>
     </div>
   
     <Modal v-model="graphVisible">
@@ -543,7 +545,7 @@
     }
     #right-column {
       flex: none;
-      width: 220px;
+      width: 300px;
     }
   }
 
@@ -614,7 +616,7 @@
           display: inline-block;
         }
         p:first-child {
-          width: 90px;
+          width: 150px;
         }
         p:last-child {
           float: right;
@@ -629,8 +631,8 @@
 
   #pieChart {
     .echarts {
-      height: 250px;
-      width: 210px;
+      height: 300px;
+      width: 300px;
     }
     #detail {
       position: absolute;
