@@ -64,14 +64,22 @@
   let countCheck = 0;
   var checkAdsReady = setInterval(function() {
    countCheck += 1;
-   if(countCheck > 10) clearInterval(checkAdsReady);  
+   if(countCheck > 30 || /problem\/.+$/.test(window.location.href) == false) clearInterval(checkAdsReady);  
    if (document.getElementById('ggslot1') != null) {
-    insertAd('ggslot1', '<ins class="adsbygoogle" style="display:block; max-width: 300px;min-width: 200px;min-height: 300px;" data-ad-client="ca-pub-5101718850050799" data-ad-slot="6898080101" data-ad-format="auto" data-full-width-responsive="true"></ins>');
-    // insertAd('ggslot2', '<ins class="adsbygoogle" style="display:block; max-width: 300px;min-width: 200px;min-height: 300px;" data-ad-client="ca-pub-5101718850050799" data-ad-slot="1422392145" data-ad-format="auto" data-full-width-responsive="true"></ins>');    
+    insertAd('ggslot1', '<ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-5101718850050799" data-ad-slot="6898080101" data-ad-format="auto" data-full-width-responsive="true"></ins>');
     clearInterval(checkAdsReady);
+    window.onscroll = function() {stickyBanner()};
+    var header = document.getElementById("ggslot1");
+    var sticky = header.offsetTop;
+    function stickyBanner() {
+    if (window.pageYOffset > sticky) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+}
    }
-}, 200); // check every 100ms
-  
+}, 300); // check every 100ms
 </script>
 <!-- built files will be auto injected -->
 <script src='/static/plugin/live2d/jquery.min.js?v=3.3.1'></script>

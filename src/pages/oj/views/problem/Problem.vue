@@ -106,6 +106,7 @@
         </Row>
       </Card>
       <Card :padding="20" dis-hover>
+      <div id="ggslot2"></div>
         <h3 style="font-size: 20px;">Bình luận</h3>
         <ul style="margin-left: 30px;">
           <li>Thảo luận trên tinh thần giúp nhau cùng tiến bộ</li>
@@ -115,7 +116,6 @@
         <script type="application/javascript" src="https://utteranc.es/client.js" repo="luyencode/comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
       </Card>
     </div>
-
     <div id="right-column">
       <VerticalMenu @on-click="handleRoute" style="cursor: pointer;">
         <template v-if="this.contestID">
@@ -209,7 +209,6 @@
         </div>
       </Card>
       <div id="ggslot1" style="margin-top: 30px;"></div>
-      <!-- <div id="ggslot2" style="margin-top: 30px;"></div> -->
     </div>
   
     <Modal v-model="graphVisible">
