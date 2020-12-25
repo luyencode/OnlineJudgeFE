@@ -210,7 +210,7 @@
       </Card>
       <!-- LuyenCode_Sidebar -->
       <ins class="adsbygoogle" style="display:block; max-width: 300px;min-height: 300px;margin-top: 30px;" data-ad-client="ca-pub-5101718850050799" data-ad-slot="6898080101" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      <ins class="adsbygoogle" style="display:block; max-width: 300px;min-height: 300px;margin-top: 30px;" data-ad-client="ca-pub-5101718850050799" data-ad-slot="1422392145" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <!-- <ins class="adsbygoogle" style="display:block; max-width: 300px;min-height: 300px;margin-top: 30px;" data-ad-client="ca-pub-5101718850050799" data-ad-slot="1422392145" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
     </div>
   
     <Modal v-model="graphVisible">
