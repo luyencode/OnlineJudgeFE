@@ -208,9 +208,8 @@
           <ECharts :options="pie"></ECharts>
         </div>
       </Card>
-      <!-- LuyenCode_Sidebar -->
-      <ins class="adsbygoogle" style="display:block; max-width: 300px;min-height: 300px;margin-top: 30px;" data-ad-client="ca-pub-5101718850050799" data-ad-slot="6898080101" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      <!-- <ins class="adsbygoogle" style="display:block; max-width: 300px;min-height: 300px;margin-top: 30px;" data-ad-client="ca-pub-5101718850050799" data-ad-slot="1422392145" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+      <div id="ggslot1" style="margin-top: 30px;"></div>
+      <!-- <div id="ggslot2" style="margin-top: 30px;"></div> -->
     </div>
   
     <Modal v-model="graphVisible">
@@ -233,7 +232,6 @@
   import {JUDGE_STATUS, CONTEST_STATUS, buildProblemCodeKey} from '@/utils/constants'
   import api from '@oj/api'
   import {pie, largePie} from './chartData'
-
   // 只显示这些状态的图形占用
   const filtedStatus = ['-1', '-2', '0', '1', '2', '3', '4', '8']
   export default {
