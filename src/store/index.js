@@ -52,9 +52,9 @@ const rootActions = {
   },
   changeDomTitle ({commit, state}, payload) {
     if (payload && payload.title) {
-      window.document.title = state.website.website_name_shortcut + ' | ' + payload.title
+      window.document.title = payload.title + ' - ' + state.website.website_name_shortcut
     } else {
-      window.document.title = state.website.website_name_shortcut + ' | ' + state.route.meta.title
+      window.document.title = state.route.meta.title + ' - ' + state.website.website_name_shortcut
     }
   }
 }
