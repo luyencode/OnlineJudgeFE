@@ -69,10 +69,10 @@
           <FormItem label="Họ tên">
             <Input v-model="formProfile.real_name"/>
           </FormItem>
-          <Form-item label="Đơn vị công tác">
+          <Form-item label="Trường học">
             <Input v-model="formProfile.school"/>
           </Form-item>
-          <Form-item label="Chuyên môn">
+          <Form-item label="Chuyên ngành">
             <Input v-model="formProfile.major"/>
           </Form-item>
           <FormItem label="Ngôn ngữ">

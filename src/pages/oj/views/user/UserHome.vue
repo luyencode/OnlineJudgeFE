@@ -4,24 +4,35 @@
       <img class="avatar" :src="profile.avatar"/>
     </div>
     <Card :padding="100">
-      <div v-if="profile.user">
+      <div v-if="profile.user"  :title="profile.real_name">
         <p style="margin-top: -10px">
           <span v-if="profile.user" class="emphasis">
             <Tag v-if="profile.user.title" :color="profile.user.title_color">{{ profile.user.title }}</Tag>
             <Tag v-else :color="color">{{ gradename }}</Tag>
-            {{profile.user.username}}
+            <span v-if="profile.real_name">{{profile.real_name}}</span>
+            <span v-else>{{profile.user.username}}</span>
           </span>
-          <span v-if="profile.school">@{{profile.school}}</span>
         </p>
+        <p v-if="profile.school" style="font-size: 1.2em;color: rgb(48 141 240);"><span style="    border: 1px dotted rgb(229 233 236);padding: 5px;"><span v-if="profile.major">{{profile.major}} - </span> {{profile.school}}</span></p>
         <p v-if="profile.mood">
           {{profile.mood}}
         </p>
+        <div id="social-network">
+          <a :href="profile.github">
+            <Icon type="social-github-outline" size="30"></Icon>
+          </a>
+          <a :href="'mailto:'+ profile.user.email">
+            <Icon class="icon" type="ios-email-outline" size="30"></Icon>
+          </a>
+          <a :href="profile.blog">
+            <Icon class="icon" type="ios-world-outline" size="30"></Icon>
+          </a>
+        </div>
         <hr id="split"/>
-
         <div class="flex-container">
           <div class="left">
             <p>{{$t('m.UserHomeSolved')}}</p>
-            <p class="emphasis">{{profile.accepted_number}}</p>
+            <p class="emphasis">{{ac_problems.length}}</p>
           </div>
           <div class="middle">
             <p>{{$t('m.UserHomeserSubmissions')}}</p>
@@ -33,32 +44,19 @@
           </div>
         </div>
         <div id="problems">
-          <div v-if="problems.length">{{$t('m.List_Solved_Problems')}}
-            <Poptip v-if="refreshVisible" trigger="hover" placement="right-start">
-              <Icon type="ios-help-outline"></Icon>
-              <div slot="content">
-                <p>If you find the following problem id does not exist,<br> try to click the button.</p>
-                <Button type="info" @click="freshProblemDisplayID">regenerate</Button>
-              </div>
-            </Poptip>
-          </div>
+          <div v-if="ac_problems.length">{{$t('m.List_Solved_Problems')}} ({{ac_problems.length}})</div>
           <p v-else>{{$t('m.UserHomeIntro')}}</p>
           <div class="btns">
-            <div class="problem-btn" v-for="problemID of problems" :key="problemID">
+            <div class="problem-btn" v-for="problemID of ac_problems" :key="problemID">
               <Button type="ghost" @click="goProblem(problemID)">{{problemID}}</Button>
             </div>
           </div>
-        </div>
-        <div id="icons">
-          <a :href="profile.github">
-            <Icon type="social-github-outline" size="30"></Icon>
-          </a>
-          <a :href="'mailto:'+ profile.user.email">
-            <Icon class="icon" type="ios-email-outline" size="30"></Icon>
-          </a>
-          <a :href="profile.blog">
-            <Icon class="icon" type="ios-world-outline" size="30"></Icon>
-          </a>
+          <div v-if="tried_problems.length" style="margin-top: 30px;">{{$t('m.List_Tried_Problems')}} ({{tried_problems.length}})</div>
+          <div class="btns">
+            <div class="problem-btn" v-for="problemID of tried_problems" :key="problemID">
+            <Button type="ghost" @click="goProblem(problemID)">{{problemID}}</Button>
+            </div>
+          </div>
         </div>
       </div>
     </Card>
@@ -75,7 +73,8 @@
       return {
         username: '',
         profile: {},
-        problems: [],
+        ac_problems: [],
+        tried_problems: [],
         color: '',
         gradename: ''
       }
@@ -90,29 +89,34 @@
         api.getUserInfo(this.username).then(res => {
           this.changeDomTitle({title: res.data.data.user.username})
           this.profile = res.data.data
+          console.log(this.profile)
           this.color = USER_GRADE[res.data.data.grade].color
           this.gradename = USER_GRADE[res.data.data.grade].name
-          this.getSolvedProblems()
+          this.getUserProblems()
           let registerTime = time.utcToLocal(this.profile.user.create_time, 'YYYY-MM-D')
           console.log('The guy registered at ' + registerTime + '.')
         })
       },
-      getSolvedProblems () {
+      getUserProblems () {
         let ACMProblems = this.profile.acm_problems_status.problems || {}
         let OIProblems = this.profile.oi_problems_status.problems || {}
         // todo oi problems
         let ACProblems = []
+        let TriedProblems = []
         let found = {}
         for (let problems of [ACMProblems, OIProblems]) {
           Object.keys(problems).forEach(problemID => {
             if (problems[problemID]['status'] === 0 && !found.hasOwnProperty(problems[problemID]['_id'])) {
               ACProblems.push(problems[problemID]['_id'])
               found[problems[problemID]['_id']] = 1
+            } else if (problems[problemID]['status'] !== 0 && !found.hasOwnProperty(problems[problemID]['_id'])) {
+              TriedProblems.push(problems[problemID]['_id'])
+              found[problems[problemID]['_id']] = 1
             }
           })
         }
-        ACProblems.sort()
-        this.problems = ACProblems
+        this.ac_problems = ACProblems.sort()
+        this.tried_problems = TriedProblems.sort()
       },
       goProblem (problemID) {
         this.$router.push({name: 'problem-details', params: {problemID: problemID}})
@@ -200,11 +204,8 @@
         }
       }
     }
-    #icons {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translate(-50%);
+    #social-network {
+      text-align: center;
       .icon {
         padding-left: 20px;
       }

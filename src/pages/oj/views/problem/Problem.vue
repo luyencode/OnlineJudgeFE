@@ -10,6 +10,10 @@
       <!--problem main-->
       <Panel :padding="40" shadow>
         <h2 slot="title" class="problem-title">{{problem._id}} - {{problem.title}}</h2>
+        <div class="tags" style="text-align:center;margin-top:-50px;">
+          <Tag v-for="tag in problem.tags" :key="tag" @click.native="handleRoute('/problem?tag=' + tag + '&page=1')">{{tag}}</Tag>
+        </div>
+        <!-- <div class="ggslot2" style="background: #000;margin: 0px auto;height: 90px;margin-top: -40px;"></div> -->
         <div id="problem-content" class="markdown-body" v-katex>
           <h3 class="title">{{$t('m.Description')}}</h3>
           <p class="content" v-html=problem.description></p>
@@ -68,7 +72,7 @@
             <div class="status" v-if="statusVisible">
               <template v-if="!this.contestID || (this.contestID && OIContestRealTimePermission)">
                 <span>{{$t('m.Status')}}</span>
-                <Tag type="dot" :color="submissionStatus.color" @click.native="handleRoute('/status/'+submissionId)">
+                <Tag type="dot" :color="submissionStatus.color" title="Click để xem chi tiết" @click.native="handleRoute('/status/'+submissionId)">
                   {{$t('m.' + submissionStatus.text.replace(/ /g, "_"))}}
                 </Tag>
               </template>
@@ -106,11 +110,9 @@
         </Row>
       </Card>
       <Card :padding="20" dis-hover>
-      <div id="ggslot2"></div>
         <h3 style="font-size: 20px;">Bình luận</h3>
         <ul style="margin-left: 30px;">
           <li>Thảo luận trên tinh thần giúp nhau cùng tiến bộ</li>
-          <li>Không xin hoặc chia sẻ đáp án của bài tập</li>
           <li>Không đăng các nội dung quảng cáo, spam</li>
         </ul>
         <script type="application/javascript" src="https://utteranc.es/client.js" repo="luyencode/comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
@@ -562,7 +564,6 @@
   }
 
   #problem-content {
-    margin-top: -50px;
     word-break: break-word;
     .title {
       font-size: 20px;

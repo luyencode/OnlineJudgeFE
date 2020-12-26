@@ -73,7 +73,7 @@ export const m = {
   ACM_Ranklist: 'Bảng xếp hạng ACM',
   mood: 'mood',
   AC: 'Bài đúng',
-  Rating: 'Tỉ lệ',
+  Rating: 'Tỉ lệ đạt',
   // Announcements.vue
   Contest_Announcements: 'Các thông báo của kỳ thi',
   By: 'Bởi',
@@ -143,8 +143,8 @@ export const m = {
   // CodeMirror.vue
   Language: 'Ngôn ngữ',
   Theme: 'Giao diện',
-  Reset_to_default_code_definition: 'Xóa source code của bạn',
-  Upload_file: 'Upload file',
+  Reset_to_default_code_definition: 'Reset',
+  Upload_file: 'Nộp file',
   Monokai: 'Monokai',
   Solarized_Light: 'Solarized Light',
   Material: 'Material',
@@ -290,6 +290,7 @@ export const m = {
   UserHomeSolved: 'Đã đạt',
   UserHomeserSubmissions: 'Lần nộp',
   UserHomeScore: 'Điểm',
-  List_Solved_Problems: 'Các bài đã vượt qua',
+  List_Solved_Problems: 'Danh sách bài đã vượt qua',
+  List_Tried_Problems: 'Danh sách bài chưa đạt',
   UserHomeIntro: 'Đây là một thanh niên lười biếng, chưa làm được bất kỳ bài tập nào.'
 }
