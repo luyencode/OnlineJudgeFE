@@ -51,9 +51,11 @@ const rootActions = {
     commit(types.CHANGE_MODAL_STATUS, payload)
   },
   changeDomTitle ({commit, state}, payload) {
+    console.log()
     if (payload && payload.title) {
       window.document.title = payload.title + ' - ' + state.website.website_name_shortcut
-    } else {
+    // if not home page
+    } else if (/[^/]+\/\/[^/]+\/$/.test(window.location.href) === false) {
       window.document.title = state.route.meta.title + ' - ' + state.website.website_name_shortcut
     }
   }

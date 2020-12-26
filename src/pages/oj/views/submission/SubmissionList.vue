@@ -1,7 +1,7 @@
 <template>
   <div class="flex-container">
     <div id="main">
-      <!-- <div class="ggslot3" style="background: #000;margin: 0px auto;height: 90px;"></div> -->
+      <div class="ggslot" id="ggslot4" style="margin-bottom: 20px;"></div>
       <Panel shadow>
         <div slot="title">{{title}}</div>
         <div slot="extra">

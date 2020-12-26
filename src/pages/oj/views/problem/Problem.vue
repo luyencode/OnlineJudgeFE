@@ -9,8 +9,8 @@
     <div id="problem-main">
       <!--problem main-->
       <Panel :padding="40" shadow>
+        <div id="ggslot2" class="ggslot" style="margin-top: -40px;"></div>
         <h2 slot="title" class="problem-title">{{problem._id}} - {{problem.title}}</h2>
-        <!-- <div class="ggslot2" style="background: #000;margin: 0px auto;height: 90px;margin-top: -40px;"></div> -->
         <div id="problem-content" class="markdown-body" v-katex>
           <h3 class="title">{{$t('m.Description')}}</h3>
           <p class="content" v-html=problem.description></p>
@@ -106,6 +106,7 @@
           </Col>
         </Row>
       </Card>
+      <div id="ggslot6" class="ggslot" style="margin-bottom: 20px;"></div>
       <Card :padding="20" dis-hover>
         <h3 style="font-size: 20px;">Bình luận</h3>
         <ul style="margin-left: 30px;">
@@ -207,7 +208,7 @@
           <ECharts :options="pie"></ECharts>
         </div>
       </Card>
-      <div id="ggslot1" style="margin-top: 30px;"></div>
+      <div id="ggslot1" class="ggslot" style="margin-top: 20px;"></div>
     </div>
   
     <Modal v-model="graphVisible">
@@ -561,7 +562,7 @@
   }
 
   #problem-content {
-    margin-top: -60px;
+    margin-top: -10px;
     word-break: break-word;
     .title {
       font-size: 20px;

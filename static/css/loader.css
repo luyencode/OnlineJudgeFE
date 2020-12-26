@@ -129,5 +129,9 @@ body {
 }
 .sticky {
   position: fixed;
-  top: 50px;
+  top: 60px;
+}
+.ggslot {
+  text-align: center;
+  /* background-color: black; */
 }

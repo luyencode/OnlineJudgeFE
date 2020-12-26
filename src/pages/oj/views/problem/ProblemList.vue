@@ -68,6 +68,7 @@
       </Button>
     </Panel>
     <Spin v-if="loadings.tag" fix size="large"></Spin>
+    <div id="ggslot3" class="ggslot" style="margin-top: 20px;"></div>
     </Col>
   </Row>
 </template>
