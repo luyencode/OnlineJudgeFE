@@ -10,9 +10,6 @@
       <!--problem main-->
       <Panel :padding="40" shadow>
         <h2 slot="title" class="problem-title">{{problem._id}} - {{problem.title}}</h2>
-        <div class="tags" style="text-align:center;margin-top:-50px;">
-          <Tag v-for="tag in problem.tags" :key="tag" @click.native="handleRoute('/problem?tag=' + tag + '&page=1')">{{tag}}</Tag>
-        </div>
         <!-- <div class="ggslot2" style="background: #000;margin: 0px auto;height: 90px;margin-top: -40px;"></div> -->
         <div id="problem-content" class="markdown-body" v-katex>
           <h3 class="title">{{$t('m.Description')}}</h3>
@@ -564,6 +561,7 @@
   }
 
   #problem-content {
+    margin-top: -60px;
     word-break: break-word;
     .title {
       font-size: 20px;
