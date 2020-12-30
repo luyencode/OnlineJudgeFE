@@ -1,3 +1,10 @@
+<style>
+  .ivu-table-fixed {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+</style>
+
 <template>
   <Panel shadow>
     <div slot="title">{{ contest.title }}</div>

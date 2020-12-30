@@ -38,7 +38,7 @@
       </Panel>
     </div>
     <div v-if="!contestID" id="right-column">
-      <Panel shadow style="padding-top: 0px;padding-bottom: 10px;">
+      <!-- <Panel shadow style="padding-top: 0px;padding-bottom: 10px;min-height: 400px;">
         <div slot="title" style="margin-left: -10px;margin-bottom: -10px;">{{$t('m.Ranklist_Title')}}</div>
         <ol style="margin-left: 40px;margin-bottom: 20px;">
           <li v-for="u in dataRank" :key="u.id">
@@ -48,8 +48,8 @@
             </a> - {{u.accepted_number}} bài
           </li>
         </ol>
-      </Panel>
-      <div class="ggslot" id="ggslot4" style="margin-top: 20px;"></div>
+      </Panel> -->
+      <div class="ggslot" id="ggslot4"></div>
     </div>
   </div>
 </template>
@@ -398,6 +398,7 @@
     #right-column {
       flex: none;
       width: 300px;
+      max-width: 300px;
     }
   }
 </style>

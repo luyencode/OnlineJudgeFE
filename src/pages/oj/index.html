@@ -71,13 +71,13 @@ function insertAds(){
       insertAdEle('ggslot1', '<ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-5101718850050799" data-ad-slot="6898080101" data-ad-format="auto" data-full-width-responsive="true"></ins>');
       insertAdEle('ggslot2', '<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5101718850050799" data-ad-slot="1422392145"></ins>');
       insertAdEle('ggslot3', '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5101718850050799" data-ad-slot="9015055098" data-ad-format="auto" data-full-width-responsive="true"></ins>');
-      insertAdEle('ggslot4', '<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-5101718850050799" data-ad-slot="5845966271"></ins>');
+      insertAdEle('ggslot4', '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5101718850050799" data-ad-slot="5845966271" data-ad-format="auto" data-full-width-responsive="true"></ins>');
       insertAdEle('ggslot5', '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5101718850050799" data-ad-slot="6962579151" data-ad-format="auto" data-full-width-responsive="true"></ins>');
       insertAdEle('ggslot6', '<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5101718850050799" data-ad-slot="4176633712"></ins>');
       clearInterval(checkAdsReady);
       var header = document.getElementsByClassName("sticky-div");
       var sticky = -1;
-      if (header != null) {
+      if (header.length > 0) {
         sticky = header[0].offsetTop;
         header = header[0];
       }
