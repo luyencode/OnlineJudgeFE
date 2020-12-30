@@ -214,7 +214,7 @@
     }
     #contest-menu {
       flex: none;
-      width: 210px;
+      width: 300px;
       margin-left: 20px;
       cursor: pointer;
     }

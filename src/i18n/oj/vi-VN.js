@@ -119,8 +119,8 @@ export const m = {
   Announcements: 'Thông báo',
   Submissions: 'Danh sách bài nộp',
   Problem_Submissions: 'Nộp bài',
-  Rankings: 'Xếp hạng',
-  Overview: 'Thông tin',
+  Rankings: 'Bảng xếp hạng',
+  Overview: 'Thông tin kỳ thi',
   Admin_Helper: 'Admin Helper',
   StartAt: 'Bắt đầu',
   EndAt: 'Kết thúc',
@@ -220,7 +220,7 @@ export const m = {
   // OIRank.vue
   OI_Ranklist: 'Bảng xếp hạng OI',
   // OIContestRank.vue
-  Total_Score: 'Total Score',
+  Total_Score: 'Tổng điểm',
   // ExperienceRank.vue
   Experience: 'Kinh nghiệm',
   Experience_Rank: 'Experience Rank',
@@ -268,6 +268,7 @@ export const m = {
   Succeeded: 'Thành công',
   Real_Time: 'Real Time',
   Signal: 'Signal',
+  Ranklist_Title: 'Coder tích cực',
   // SubmissionList.vue
   When: '#',
   ID: 'ID',

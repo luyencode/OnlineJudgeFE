@@ -1,3 +1,10 @@
+<style>
+  .ivu-table-fixed {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+</style>
+
 <template>
   <Panel shadow>
     <div slot="title">{{ contest.title }}</div>
@@ -29,7 +36,7 @@
     <div v-show="showChart" class="echarts">
       <ECharts :options="options" ref="chart" auto-resize></ECharts>
     </div>
-    <Table ref="tableRank" height="600" :columns="columns" :data="dataRank" disabled-hover></Table>
+    <Table ref="tableRank" :columns="columns" :data="dataRank" disabled-hover></Table>
     <Pagination :total="total"
                 :page-size.sync="limit"
                 :current.sync="page"

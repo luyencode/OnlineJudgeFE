@@ -266,6 +266,7 @@ export const m = {
   Succeeded: 'Succeeded',
   Real_Time: 'Real Time',
   Signal: 'Signal',
+  Ranklist_Title: 'Top coder',
   // SubmissionList.vue
   When: 'When',
   ID: 'ID',

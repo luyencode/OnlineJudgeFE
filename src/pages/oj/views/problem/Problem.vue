@@ -208,7 +208,7 @@
           <ECharts :options="pie"></ECharts>
         </div>
       </Card>
-      <div id="ggslot1" class="ggslot" style="margin-top: 20px;"></div>
+      <div id="ggslot1" class="ggslot sticky-div" style="margin-top: 20px;"></div>
     </div>
   
     <Modal v-model="graphVisible">

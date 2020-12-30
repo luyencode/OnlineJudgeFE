@@ -1,74 +1,73 @@
 <template>
   <Row type="flex" :gutter="18">
     <Col :span=19>
-    <Panel shadow>
-      <div slot="title">{{$t('m.Problem_List')}}</div>
-      <div slot="extra">
-        <ul class="filter">
-          <li>
-            <Dropdown @on-click="filterByDifficulty" style="cursor:pointer;">
-              <span>{{query.difficulty === '' ? this.$i18n.t('m.Difficulty') : this.$i18n.t('m.' + query.difficulty)}}
-                <Icon type="arrow-down-b"></Icon>
-              </span>
-              <Dropdown-menu slot="list">
-                <Dropdown-item name="">{{$t('m.All')}}</Dropdown-item>
-                <Dropdown-item name="Low">{{$t('m.Low')}}</Dropdown-item>
-                <Dropdown-item name="Mid" >{{$t('m.Mid')}}</Dropdown-item>
-                <Dropdown-item name="High">{{$t('m.High')}}</Dropdown-item>
-              </Dropdown-menu>
-            </Dropdown>
-          </li>
-          <li>
-            <i-switch size="large" @on-change="handleTagsVisible">
-              <span slot="open">{{$t('m.Tags')}}</span>
-              <span slot="close">{{$t('m.Tags')}}</span>
-            </i-switch>
-          </li>
-          <li>
-            <Input v-model="query.keyword"
-                   @on-enter="filterByKeyword"
-                   @on-click="filterByKeyword"
-                   placeholder="Từ khóa"
-                   icon="ios-search-strong"/>
-          </li>
-          <li>
-            <Button type="info" @click="onReset">
-              <Icon type="refresh"></Icon>
-              {{$t('m.Reset')}}
-            </Button>
-          </li>
-        </ul>
-      </div>
-      <Table style="width: 100%; font-size: 16px;"
-             :columns="problemTableColumns"
-             :data="problemList"
-             :loading="loadings.table"
-             disabled-hover></Table>
-    </Panel>
-    <Pagination :total="total" :page-size="limit" @on-change="pushRouter" :current.sync="query.page"></Pagination>
-
+      <Panel shadow>
+        <div slot="title">{{$t('m.Problem_List')}}</div>
+        <div slot="extra">
+          <ul class="filter">
+            <li>
+              <Dropdown @on-click="filterByDifficulty" style="cursor:pointer;">
+                <span>{{query.difficulty === '' ? this.$i18n.t('m.Difficulty') : this.$i18n.t('m.' + query.difficulty)}}
+                  <Icon type="arrow-down-b"></Icon>
+                </span>
+                <Dropdown-menu slot="list">
+                  <Dropdown-item name="">{{$t('m.All')}}</Dropdown-item>
+                  <Dropdown-item name="Low">{{$t('m.Low')}}</Dropdown-item>
+                  <Dropdown-item name="Mid" >{{$t('m.Mid')}}</Dropdown-item>
+                  <Dropdown-item name="High">{{$t('m.High')}}</Dropdown-item>
+                </Dropdown-menu>
+              </Dropdown>
+            </li>
+            <li>
+              <i-switch size="large" @on-change="handleTagsVisible">
+                <span slot="open">{{$t('m.Tags')}}</span>
+                <span slot="close">{{$t('m.Tags')}}</span>
+              </i-switch>
+            </li>
+            <li>
+              <Input v-model="query.keyword"
+                    @on-enter="filterByKeyword"
+                    @on-click="filterByKeyword"
+                    placeholder="Từ khóa"
+                    icon="ios-search-strong"/>
+            </li>
+            <li>
+              <Button type="info" @click="onReset">
+                <Icon type="refresh"></Icon>
+                {{$t('m.Reset')}}
+              </Button>
+            </li>
+          </ul>
+        </div>
+        <Table style="width: 100%; font-size: 16px;"
+              :columns="problemTableColumns"
+              :data="problemList"
+              :loading="loadings.table"
+              disabled-hover></Table>
+      </Panel>
+      <Pagination :total="total" :page-size="limit" @on-change="pushRouter" :current.sync="query.page"></Pagination>
     </Col>
 
     <Col :span="5">
-    <Panel :padding="10">
-      <div slot="title" class="taglist-title">{{$t('m.TagsTitle')}}</div>
-      <Button long id="pick-one" @click="pickone">
-        <Icon type="shuffle"></Icon>
-        {{$t('m.Pick_One')}}
-      </Button>
-      <br>
+      <Panel :padding="10">
+        <div slot="title" class="taglist-title">{{$t('m.TagsTitle')}}</div>
+        <Button long id="pick-one" @click="pickone">
+          <Icon type="shuffle"></Icon>
+          {{$t('m.Pick_One')}}
+        </Button>
+        <br>
 
-      <Button v-for="tag in tagList"
-              :key="tag.name"
-              @click="filterByTag(tag.name)"
-              type="ghost"
-              :disabled="query.tag === tag.name"
-              shape="circle"
-              class="tag-btn">{{tag.name}}
-      </Button>
-    </Panel>
-    <Spin v-if="loadings.tag" fix size="large"></Spin>
-    <div id="ggslot3" class="ggslot" style="margin-top: 20px;"></div>
+        <Button v-for="tag in tagList"
+                :key="tag.name"
+                @click="filterByTag(tag.name)"
+                type="ghost"
+                :disabled="query.tag === tag.name"
+                shape="circle"
+                class="tag-btn">{{tag.name}}
+        </Button>
+      </Panel>
+      <Spin v-if="loadings.tag" fix size="large"></Spin>
+      <div id="ggslot3" class="ggslot" style="margin-top: 20px;"></div>
     </Col>
   </Row>
 </template>

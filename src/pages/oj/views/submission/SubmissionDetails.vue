@@ -1,6 +1,6 @@
 <template>
-  <Row type="flex" justify="space-around">
-    <Col :span="20" id="status">
+  <Row type="flex" :gutter="20">
+    <Col :span="19" id="status">
       <Alert :type="status.type" showIcon>
         <span class="title">{{$t('m.' + status.statusName.replace(/ /g, "_"))}}</span>
         <div slot="desc" class="content">
@@ -15,19 +15,10 @@
           </template>
         </div>
       </Alert>
-    </Col>
-    <!--后台返info就显示出来， 权限控制放后台 -->
-    <Col v-if="submission.info && !isCE" :span="20">
-      <Table stripe :loading="loading" :disabled-hover="true" :columns="columns" :data="submission.info.data"></Table>
-    </Col>
-    <Col :span="20">
-    <div class="ggslot" id="ggslot5" style="margin: 20px 0px 10px 0px;"></div>
-    </Col>
-    <Col :span="20">
+      <Table v-if="submission.info && !isCE" :span="15" stripe :loading="loading" :disabled-hover="true" :columns="columns" :data="submission.info.data">
+      </Table>
       <Highlight :code="submission.code" :language="submission.language" :border-color="status.color"></Highlight>
-    </Col>
-    <Col v-if="submission.can_unshare" :span="20">
-      <div id="share-btn">
+      <div v-if="submission.can_unshare" :span="15" id="share-btn">
         <Button v-if="submission.shared"
                 type="warning" size="large" @click="shareSubmission(false)">
           {{$t('m.UnShare')}}
@@ -37,6 +28,9 @@
           {{$t('m.Share')}}
         </Button>
       </div>
+    </Col>
+    <Col :span="5" :gutter="20">
+      <div class="ggslot sticky-div" id="ggslot5"></div>
     </Col>
   </Row>
 
@@ -204,11 +198,14 @@
   #share-btn {
     float: right;
     margin-top: 5px;
-    margin-right: 10px;
+    margin-right: 0px;
   }
 
   pre {
     border: none;
     background: none;
+  }
+  .sticky {
+    margin-top: 20px;
   }
 </style>
