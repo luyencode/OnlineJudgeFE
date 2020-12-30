@@ -30,7 +30,18 @@
       </div>
     </Col>
     <Col :span="5" :gutter="20">
-      <div class="ggslot sticky-div" id="ggslot5"></div>
+      <Panel shadow style="padding-top: 0px;padding-bottom: 10px;min-height: 400px;">
+        <div slot="title" style="margin-left: -10px;margin-bottom: -10px;">{{$t('m.Ranklist_Title')}}</div>
+        <ol style="margin-left: 40px;margin-bottom: 20px;">
+          <li v-for="u in dataRank" :key="u.id">
+            <a :style="'font-weight: 600;color: ' + u.color" :href="'/user-home?username=' + u.user.username"
+               :title=" u.title + ' ' + u.user.username">
+            {{u.user.username}}
+            </a> - {{u.accepted_number}} bài
+          </li>
+        </ol>
+      </Panel>
+      <div class="ggslot sticky-div" id="ggslot5" style="margin-top: 20px;"></div>
     </Col>
   </Row>
 
@@ -38,7 +49,7 @@
 
 <script>
   import api from '@oj/api'
-  import {JUDGE_STATUS} from '@/utils/constants'
+  import {RULE_TYPE, JUDGE_STATUS, USER_GRADE} from '@/utils/constants'
   import utils from '@/utils/utils'
   import Highlight from '@/pages/oj/components/Highlight'
 
@@ -49,6 +60,8 @@
     },
     data () {
       return {
+        dataRank: [],
+        rankLimit: 15,
         columns: [
           {
             title: this.$i18n.t('m.ID'),
@@ -98,6 +111,7 @@
     },
     mounted () {
       this.getSubmission()
+      this.getRankData()
     },
     methods: {
       getSubmission () {
@@ -139,6 +153,16 @@
           this.submission = data
         }, () => {
           this.loading = false
+        })
+      },
+      getRankData () {
+        api.getUserRank(0, this.rankLimit, RULE_TYPE.ACM).then(res => {
+          this.dataRank = res.data.data.results
+          for (let i in this.dataRank) {
+            this.dataRank[i]['color'] = USER_GRADE[this.dataRank[i].grade].color
+            this.dataRank[i]['title'] = USER_GRADE[this.dataRank[i].grade].name
+          }
+        }).catch(() => {
         })
       },
       shareSubmission (shared) {
