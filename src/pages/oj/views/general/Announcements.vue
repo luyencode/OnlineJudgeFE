@@ -156,7 +156,7 @@
       getTagList () {
         api.getProblemTagList().then(res => {
           this.tagList = res.data.data.sort((a, b) => {
-            return a.name.localeCompare(b.name)
+            return a.id - b.id
           })
         })
       },
