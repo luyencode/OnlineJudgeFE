@@ -41,6 +41,7 @@
         </div>
         <Table style="width: 100%; font-size: 16px;"
               :columns="problemTableColumns"
+              @on-sort-change="handleSortChange"
               :data="problemList"
               :loading="loadings.table"
               disabled-hover></Table>
@@ -148,16 +149,16 @@
             }
           },
           {
-            sortable: true,
+            sortable: 'custom',
             title: this.$i18n.t('m.Total'),
             key: 'submission_number'
           },
           {
-            sortable: true,
-            title: this.$i18n.t('m.AC_Rate'),
-            key: 'ac_rate',
+            sortable: 'custom',
+            title: this.$i18n.t('m.AC_Count'),
+            key: 'accepted_number',
             render: (h, params) => {
-              return h('span', this.getACRate(params.row.accepted_number, params.row.submission_number))
+              return h('span', params.row.accepted_number)
             }
           }
         ],
@@ -173,7 +174,8 @@
           keyword: '',
           difficulty: '',
           tag: '',
-          page: 1
+          page: 1,
+          orderby: 'create_time'
         }
       }
     },
@@ -228,6 +230,18 @@
         }, res => {
           this.loadings.tag = false
         })
+      },
+      handleSortChange (data) {
+        let key = data['key']
+        if (data['order'] === 'desc') {
+          key = '-' + key
+        }
+        if (data['order'] !== 'normal') {
+          this.query.orderby = key
+        } else {
+          this.query.orderby = 'create_time'
+        }
+        this.pushRouter()
       },
       filterByTag (tagName) {
         this.query.tag = tagName

@@ -72,7 +72,7 @@ export const m = {
   ACM_Ranklist: 'ACM Ranklist',
   mood: 'mood',
   AC: 'AC',
-  Rating: 'Rating',
+  AC_Rate: 'Rating',
   // Announcements.vue
   Contest_Announcements: 'Contest Announcements',
   By: 'By',
@@ -233,7 +233,7 @@ export const m = {
   Pick_One: 'Pick one',
   Difficulty: 'Difficulty',
   Total: 'Total',
-  AC_Rate: 'AC Rate',
+  AC_Count: 'Solved',
   // Register.vue
   RegisterUsername: 'Username',
   Email_Address: 'Email Address',

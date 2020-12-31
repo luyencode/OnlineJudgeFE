@@ -9,7 +9,7 @@
       <div class="flex-container" v-if="route_name === 'contest-details'">
         <template>
           <div id="contest-desc">
-            <Panel :padding="20" shadow>
+            <Panel :padding="25" shadow>
               <div slot="title">
                 {{contest.title}}
               </div>

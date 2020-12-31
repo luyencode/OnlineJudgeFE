@@ -110,7 +110,7 @@
             key: 'submission_number'
           },
           {
-            title: this.$i18n.t('m.Rating'),
+            title: this.$i18n.t('m.AC_Rate'),
             align: 'center',
             render: (h, params) => {
               return h('span', utils.getACRate(params.row.accepted_number, params.row.submission_number))

@@ -41,9 +41,9 @@
             key: 'submission_number'
           },
           {
-            title: this.$i18n.t('m.AC_Rate'),
+            title: this.$i18n.t('m.AC_Count'),
             render: (h, params) => {
-              return h('span', this.getACRate(params.row.accepted_number, params.row.submission_number))
+              return h('span', params.row.accepted_number)
             }
           }
         ],

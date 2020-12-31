@@ -73,7 +73,7 @@ export const m = {
   ACM_Ranklist: 'Bảng xếp hạng ACM',
   mood: 'mood',
   AC: 'Bài đúng',
-  Rating: 'Tỉ lệ đạt',
+  AC_Rate: 'Tỉ lệ đạt',
   // Announcements.vue
   Contest_Announcements: 'Các thông báo của kỳ thi',
   By: 'Bởi',
@@ -235,7 +235,7 @@ export const m = {
   Pick_One: 'Thử thách 1 bài ngẫu nhiên',
   Difficulty: 'Độ khó',
   Total: 'Đã nộp',
-  AC_Rate: 'Tỉ lệ đạt',
+  AC_Count: 'Bài đạt',
   // Register.vue
   RegisterUsername: 'Tên đăng nhập',
   Email_Address: 'Địa chỉ email',

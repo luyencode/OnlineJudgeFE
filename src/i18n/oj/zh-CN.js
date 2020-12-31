@@ -67,7 +67,7 @@ export const m = {
   ACM_Ranklist: 'ACM 排名',
   mood: '格言',
   AC: 'AC',
-  Rating: '通过率',
+  AC_Rate: '通过率',
   // Announcements.vue
   Contest_Announcements: '比赛公告',
   By: '创建人',
@@ -228,7 +228,6 @@ export const m = {
   Pick_One: 'Pick One',
   Difficulty: '难度',
   Total: '总数',
-  AC_Rate: '通过率',
   // Register.vue
   RegisterUsername: '用户名｜请使用“k/c+入学年份+真实姓名”',
   Email_Address: '电子邮箱',
