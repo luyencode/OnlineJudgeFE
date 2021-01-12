@@ -7,10 +7,10 @@
         <Icon type="ios-keypad"></Icon>
         {{$t('m.NavProblems')}}
       </Menu-item>
-      <!-- <Menu-item name="/contest" >
+      <Menu-item name="/contest" >
         <Icon type="trophy"></Icon>
         {{$t('m.Contests')}}
-      </Menu-item> -->
+      </Menu-item>
       <Menu-item name="/status" >
         <Icon type="upload"></Icon>
         {{$t('m.NavStatus')}}

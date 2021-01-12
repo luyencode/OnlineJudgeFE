@@ -266,9 +266,9 @@ export const m = {
   Share: 'Chia sẻ',
   UnShare: 'Riêng tư',
   Succeeded: 'Thành công',
-  Real_Time: 'Real Time',
+  Real_Time: 'Họ tên',
   Signal: 'Signal',
-  Ranklist_Title: 'Coder tích cực',
+  Ranklist_Title: '️️Coder tích cực️️',
   // SubmissionList.vue
   When: '#',
   ID: 'ID',

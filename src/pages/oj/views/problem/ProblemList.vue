@@ -224,7 +224,8 @@
       getTagList () {
         api.getProblemTagList().then(res => {
           this.tagList = res.data.data.sort((a, b) => {
-            return a.id - b.id
+            // return a.id - b.id
+            return a.name.localeCompare(b.name)
           })
           this.loadings.tag = false
         }, res => {

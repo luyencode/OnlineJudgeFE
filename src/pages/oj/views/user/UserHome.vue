@@ -44,14 +44,31 @@
           </div>
         </div>
         <div id="problems">
-          <div v-if="ac_problems.length">{{$t('m.List_Solved_Problems')}} ({{ac_problems.length}})</div>
+          <div v-if="ac_problems.length">{{$t('m.List_Solved_Problems')}} ({{ac_problems.length}})
+            <Poptip v-if="refreshVisible" trigger="hover" placement="right-start">
+              <Icon type="ios-help-outline"></Icon>
+              <div slot="content">
+                <p>Nếu bạn thấy 1 bài tập nào đó không tồn tại, <br> click vào button để tải lại.</p>
+                <Button type="info" @click="freshProblemDisplayID">regenerate</Button>
+              </div>
+            </Poptip>
+          </div>
+          
           <p v-else>{{$t('m.UserHomeIntro')}}</p>
           <div class="btns">
             <div class="problem-btn" v-for="problemID of ac_problems" :key="problemID">
               <Button type="ghost" @click="goProblem(problemID)">{{problemID}}</Button>
             </div>
           </div>
-          <div v-if="tried_problems.length" style="margin-top: 30px;">{{$t('m.List_Tried_Problems')}} ({{tried_problems.length}})</div>
+          <div v-if="tried_problems.length" style="margin-top: 30px;">{{$t('m.List_Tried_Problems')}} ({{tried_problems.length}})
+            <Poptip v-if="refreshVisible" trigger="hover" placement="right-start">
+              <Icon type="ios-help-outline"></Icon>
+              <div slot="content">
+                <p>Nếu bạn thấy 1 bài tập nào đó không tồn tại, <br> nhấp vào button để làm mới.</p>
+                <Button type="info" @click="freshProblemDisplayID">Làm mới</Button>
+              </div>
+            </Poptip>
+          </div>
           <div class="btns">
             <div class="problem-btn" v-for="problemID of tried_problems" :key="problemID">
             <Button type="ghost" @click="goProblem(problemID)">{{problemID}}</Button>

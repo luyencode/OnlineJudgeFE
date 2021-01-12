@@ -6,7 +6,7 @@
       <div slot="extra">
         <ul class="filter">
           <li>
-            <Dropdown @on-click="onRuleChange">
+            <Dropdown style="cursor:pointer;" @on-click="onRuleChange">
               <span>{{query.rule_type === '' ? this.$i18n.t('m.Rule') : this.$i18n.t('m.' + query.rule_type)}}
                 <Icon type="arrow-down-b"></Icon>
               </span>
@@ -18,7 +18,7 @@
             </Dropdown>
           </li>
           <li>
-            <Dropdown @on-click="onStatusChange">
+            <Dropdown style="cursor:pointer;" @on-click="onStatusChange">
               <span>{{query.status === '' ? this.$i18n.t('m.Status') : this.$i18n.t('m.' + CONTEST_STATUS_REVERSE[query.status].name.replace(/ /g,"_"))}}
                 <Icon type="arrow-down-b"></Icon>
               </span>

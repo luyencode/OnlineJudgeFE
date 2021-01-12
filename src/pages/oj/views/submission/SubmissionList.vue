@@ -92,7 +92,6 @@
                 return h('a', {
                   style: {
                     'display': 'inline-block',
-                    'max-width': '150px',
                     'margin-left': '5px',
                     'font-weight': 600,
                     'color': params.row.title_color
@@ -217,7 +216,7 @@
         loadingTable: false,
         submissions: [],
         total: 30,
-        limit: 12,
+        limit: 15,
         page: 1,
         contestID: '',
         problemID: '',

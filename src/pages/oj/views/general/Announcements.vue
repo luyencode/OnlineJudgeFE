@@ -174,6 +174,7 @@
         let offset = 0
         api.getProblemList(offset, this.problemLimit, this.query).then(res => {
           this.problemList = res.data.data.results
+          console.log(res.data.data.results)
         })
       },
       getAnnouncementList (page = 1) {
@@ -212,7 +213,7 @@
       setNowTimes () {
         let myDate = new Date()
         let weeks = ['Chủ nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7']
-        let mouth = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+        let mouth = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
         this.nowDate = String(myDate.getDate() < 10 ? '0' + myDate.getDate() : myDate.getDate()) + '/' + mouth[myDate.getMonth()] + '/' + myDate.getFullYear()
         this.nowWeek = weeks[myDate.getDay()]
       },
