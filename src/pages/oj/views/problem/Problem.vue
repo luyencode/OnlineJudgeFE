@@ -109,7 +109,8 @@
       <div id="ggslot6" class="ggslot" style="margin-bottom: 20px;"></div>
       <Card :padding="20" dis-hover>
         <h3 style="font-size: 20px;">Bình luận</h3>
-        <ul style="margin-left: 30px;">
+        <ul style="margin-left: 30px;margin-top: 20px;">
+          <li><a rel="nofollow noopener noreferrer" target="_blank" class="animation-text" href="https://gist.github.com/nguyenvanhieuvn/d3e5e20c44ef9d565fa3d7b9ebabfc65">Đọc cách sử dụng bình luận với Markdown</a></li>
           <li>Thảo luận trên tinh thần giúp nhau cùng tiến bộ</li>
           <li>Không đăng các nội dung quảng cáo, spam</li>
         </ul>
@@ -658,5 +659,13 @@
     width: 500px;
     height: 480px;
   }
+  .animation-text {
+    animation: color-change 1s infinite;
+  }
+  @keyframes color-change {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: red; }
+}
 </style>
 
