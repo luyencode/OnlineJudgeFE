@@ -207,6 +207,16 @@
           <ECharts :options="pie"></ECharts>
         </div>
       </Card>
+      <Card style="margin-top: 20px;" :padding="0" v-if="!this.contestID || OIContestRealTimePermission">
+        <div slot="title" style="font-size: 16px"><i data-v-20c86fbe="" class="ivu-icon ivu-icon-android-document"></i>
+        <span class="card-title">Bài tập mới</span>
+        </div>
+        <ul style="margin-left: 40px;margin-bottom: 20px;">
+          <li style="padding: 5px 0px;"  v-for="p in problemList" :key="p.id">
+            <a class="link-style" :href="'/problem/' + p._id">{{p._id}} - {{p.title}}</a>
+          </li>
+        </ul>
+      </Card>
     </div>
   
     <Modal v-model="graphVisible">
@@ -243,6 +253,15 @@
         captchaRequired: false,
         graphVisible: false,
         submissionExists: false,
+        problemList: [],
+        problemLimit: 15,
+        query: {
+          keyword: '',
+          difficulty: '',
+          tag: '',
+          page: 1,
+          orderby: '-create_time'
+        },
         captchaCode: '',
         captchaSrc: '',
         contestID: '',
@@ -296,6 +315,7 @@
     mounted () {
       this.$store.commit(types.CHANGE_CONTEST_ITEM_VISIBLE, {menu: false})
       this.init()
+      this.getProblemList()
     },
     methods: {
       ...mapActions(['changeDomTitle']),
@@ -329,6 +349,13 @@
           }
         }, () => {
           this.$Loading.error()
+        })
+      },
+      getProblemList () {
+        let offset = 0
+        api.getProblemList(offset, this.problemLimit, this.query).then(res => {
+          this.problemList = res.data.data.results
+          console.log(res.data.data.results)
         })
       },
       changePie (problemData) {
