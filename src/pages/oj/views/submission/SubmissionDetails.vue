@@ -41,7 +41,6 @@
           </li>
         </ol>
       </Panel>
-      <!-- <div class="ggslot sticky-div" id="ggslot5" style="margin-top: 20px;"></div> -->
       <div class="free-course" style="margin-top: 20px;">
         <div class="title">Khóa học miễn phí</div>
           <ul>
