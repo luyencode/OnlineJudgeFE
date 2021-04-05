@@ -41,7 +41,7 @@
     data () {
       const CheckRequiredTFA = (rule, value, callback) => {
         if (value !== '') {
-          api.tfaRequiredCheck(value).then(res => {
+          api.tfaRequiredCheck(value.toLowerCase()).then(res => {
             this.tfaRequired = res.data.data.result
           })
         }

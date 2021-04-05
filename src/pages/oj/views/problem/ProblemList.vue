@@ -105,7 +105,7 @@
                   }
                 },
                 style: {
-                  padding: '2px 0'
+                  'padding': '2px 0px'
                 }
               }, params.row._id)
             }
@@ -239,7 +239,7 @@
         if (data['order'] !== 'normal') {
           this.query.orderby = key
         } else {
-          this.query.orderby = 'create_time'
+          this.query.orderby = null
         }
         this.pushRouter()
       },
