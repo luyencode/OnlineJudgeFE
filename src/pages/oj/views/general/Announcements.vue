@@ -78,16 +78,18 @@
             Ghi danh
         </Button>
       </Panel>
-      <Panel shadow style="margin-top: 30px;padding-bottom: 10px;min-height: 400px;">
-        <div slot="title" style="margin-left: -10px;margin-bottom: -10px;">{{$t('m.Ranklist_Title')}}</div>
-        <ol style="margin-left: 40px;margin-bottom: 20px;">
-          <li style="padding: 6px 0px;" v-for="u in dataRank" :key="u.id">
-            <a :style="'font-weight: 600;color: ' + u.color" :href="'/user-home?username=' + u.user.username"
-              :title=" u.title + ' ' + u.user.username">
-            {{u.user.username}}
-            </a> - {{u.accepted_number}} bài
-          </li>
-        </ol>
+      <Panel shadow style="margin-top: 30px;padding-bottom: 5px;">
+        <div slot="title" style="margin-left: -10px;margin-bottom: -10px;">{{$t('m.Similar_Site')}}</div>
+        <ul style="margin-left: 40px;margin-bottom: 20px;">
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://oj.vnoi.info/?ref=luyencode', '_blank');">VNOJ: VNOI Online Judge (vi)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('http://csloj.ddns.net/?ref=luyencode', '_blank');">Chuyên Sơn La Online Judge (vi)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('http://ntucoder.net/?ref=luyencode', '_blank');">NTUCoder (vi)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://codeforces.com/?ref=luyencode', '_blank');">Codeforces (en)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://leetcode.com/?ref=luyencode', '_blank');">LeetCode (en)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://zalo.me/g/mkfeml532/', '_blank');">Luyện Code: Hỏi & Đáp trên Zalo (&#60;3)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://www.facebook.com/groups/LapTrinhKhongKho/', '_blank');">Nhóm Lập Trình Không Khó (&#60;3)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://nguyenvanhieu.vn/', '_blank');">Blog học Lập Trình Không Khó (&#60;3)</a></li>
+        </ul>
       </Panel>
     </Col>
   </Row>
@@ -97,7 +99,6 @@
   import api from '@oj/api'
   import Pagination from '@oj/components/Pagination'
   import { mapState } from 'vuex'
-  import { RULE_TYPE, USER_GRADE } from '@/utils/constants'
 
   export default {
     name: 'Announcement',
@@ -109,8 +110,6 @@
         limit: 10,
         total: 10,
         tagList: [],
-        dataRank: [],
-        rankLimit: 15,
         problemList: [],
         problemLimit: 15,
         query: {
@@ -140,7 +139,6 @@
       }, 1000)
       this.getWord()
       this.isSighin()
-      this.getRankData()
       this.getProblemList()
       this.getTagList()
     },
@@ -158,16 +156,6 @@
           this.tagList = res.data.data.sort((a, b) => {
             return a.id - b.id
           })
-        })
-      },
-      getRankData () {
-        api.getUserRank(0, this.rankLimit, RULE_TYPE.ACM).then(res => {
-          this.dataRank = res.data.data.results
-          for (let i in this.dataRank) {
-            this.dataRank[i]['color'] = USER_GRADE[this.dataRank[i].grade].color
-            this.dataRank[i]['title'] = USER_GRADE[this.dataRank[i].grade].name
-          }
-        }).catch(() => {
         })
       },
       getProblemList () {

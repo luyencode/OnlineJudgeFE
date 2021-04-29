@@ -269,6 +269,7 @@ export const m = {
   Real_Time: 'Họ tên',
   Signal: 'Signal',
   Ranklist_Title: '️️Coder tích cực️️',
+  Similar_Site: 'Liên kết hữu ích',
   // SubmissionList.vue
   When: '#',
   ID: 'ID',

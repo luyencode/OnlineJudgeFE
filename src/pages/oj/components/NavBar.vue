@@ -30,10 +30,10 @@
           {{$t('m.Experience_Rank')}}
         </Menu-item>
       </Submenu>
-      <Menu-item title="Truy cập group trên Facebook" name="/forum">
+      <!-- <Menu-item title="Truy cập nhóm Zalo chat" name="/forum">
         <Icon type="chatbox"></Icon>
         {{$t('m.Forum')}}
-      </Menu-item>
+      </Menu-item> -->
        <Menu-item title="Truy cập blog Lập Trình Không Khó" name="blog">
         <Icon type="social-wordpress"></Icon>
         Blog
@@ -97,15 +97,7 @@
       ...mapActions(['getProfile', 'changeModalStatus']),
       handleRoute (route) {
         if (route && route.indexOf('forum') >= 0) {
-          let forums = [
-            '//facebook.com/groups/LapTrinhKhongKho',
-            '//facebook.com/groups/howkteam',
-            '//facebook.com/groups/tuhoclaptrinhcodelearn',
-            '//facebook.com/groups/163215593699283',
-            '//facebook.com/groups/learningcplusplus/',
-            '//facebook.com/groups/xoamulaptrinh/'
-          ]
-          window.location.href = forums[Math.floor(Math.random() * forums.length)]
+          window.location.href = '//zalo.me/g/mkfeml532'
         } else if (route && route.indexOf('blog') >= 0) {
           window.location.href = '//nguyenvanhieu.vn'
         } else if (route && route.indexOf('admin') < 0) {

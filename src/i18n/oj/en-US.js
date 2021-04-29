@@ -267,6 +267,7 @@ export const m = {
   Real_Time: 'Real Time',
   Signal: 'Signal',
   Ranklist_Title: 'Top coder',
+  Similar_Site: 'Similar sites',
   // SubmissionList.vue
   When: 'When',
   ID: 'ID',
