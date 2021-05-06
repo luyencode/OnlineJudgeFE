@@ -50,13 +50,13 @@
             </Col>
             <Col  :span="12">
               <Panel shadow style="padding: 10px;padding-bottom: 10px;">
-                <div slot="title" style="margin-left: -20px;margin-bottom: -10px;">{{$t('m.TagsTitle')}}</div>
+                <div slot="title" style="margin-left: -10px 0px 0px -20px;">{{$t('m.TagsTitle')}}</div>
                 <Button v-for="tag in tagList"
                         :key="tag.name"
                         type="ghost"
                         :disabled="query.tag === tag.name"
                         shape="circle"
-                        class="tag-btn"><a class="link-style" :href="'/problem?tag=' + tag.name + '&page=1'">{{tag.name}}</a>
+                        class="tag-btn"><a class="link-style" :href="'/problem?tag=' + tag.name">{{tag.name}}</a>
                 </Button>
               </Panel>
             </Col>
@@ -78,17 +78,18 @@
             Ghi danh
         </Button>
       </Panel>
-      <Panel shadow style="margin-top: 30px;padding-bottom: 5px;">
+      <Panel shadow style="margin-top: 37px;padding-bottom: 5px;">
         <div slot="title" style="margin-left: -10px;margin-bottom: -10px;">{{$t('m.Similar_Site')}}</div>
         <ul style="margin-left: 40px;margin-bottom: 20px;">
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://oj.vnoi.info/?ref=luyencode', '_blank');">VNOJ: VNOI Online Judge (vi)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('http://csloj.ddns.net/?ref=luyencode', '_blank');">Chuyên Sơn La Online Judge (vi)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('http://ntucoder.net/?ref=luyencode', '_blank');">NTUCoder (vi)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://codeforces.com/?ref=luyencode', '_blank');">Codeforces (en)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://leetcode.com/?ref=luyencode', '_blank');">LeetCode (en)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://zalo.me/g/mkfeml532/', '_blank');">Luyện Code: Hỏi & Đáp trên Zalo (&#60;3)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://www.facebook.com/groups/LapTrinhKhongKho/', '_blank');">Nhóm Lập Trình Không Khó (&#60;3)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://nguyenvanhieu.vn/', '_blank');">Blog học Lập Trình Không Khó (&#60;3)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('http://csloj.ddns.net/?ref=luyencode', '_blank');">Chuyên Sơn La Online Judge (🇻🇳)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://freecontest.net/?ref=luyencode', '_blank');">Free Contest (🇻🇳)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://oj.vnoi.info/?ref=luyencode', '_blank');">VNOJ: VNOI Online Judge (🇻🇳)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('http://ntucoder.net/?ref=luyencode', '_blank');">NTUCoder (🇻🇳)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://codeforces.com/?ref=luyencode', '_blank');">Codeforces (🇬🇧)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://leetcode.com/?ref=luyencode', '_blank');">LeetCode (🇬🇧)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://zalo.me/g/mkfeml532/', '_blank');">Luyện Code: Hỏi & Đáp trên Zalo (😘)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://www.facebook.com/groups/LapTrinhKhongKho/', '_blank');">Nhóm Lập Trình Không Khó (😘)</a></li>
+          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://nguyenvanhieu.vn/', '_blank');">Blog học Lập Trình Không Khó (😘)</a></li>
         </ul>
       </Panel>
     </Col>

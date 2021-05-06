@@ -94,18 +94,18 @@
             key: '_id',
             width: 120,
             render: (h, params) => {
-              return h('Button', {
+              return h('a', {
                 props: {
                   type: 'text',
                   size: 'large'
                 },
-                on: {
-                  click: () => {
-                    this.$router.push({name: 'problem-details', params: {problemID: params.row._id}})
-                  }
+                attrs: {
+                  href: '/problem/' + params.row._id
                 },
                 style: {
-                  'padding': '2px 0px'
+                  'padding': '2px 0px',
+                  fontSize: '14px',
+                  color: '#495060'
                 }
               }, params.row._id)
             }
@@ -114,21 +114,23 @@
             title: this.$i18n.t('m.Title'),
             width: 400,
             render: (h, params) => {
-              return h('Button', {
+              return h('a', {
                 props: {
                   type: 'text',
                   size: 'large'
                 },
-                on: {
-                  click: () => {
-                    this.$router.push({name: 'problem-details', params: {problemID: params.row._id}})
-                  }
+                attrs: {
+                  href: '/problem/' + params.row._id
                 },
                 style: {
                   padding: '2px 0',
-                  overflowX: 'auto',
+                  overflow: 'hidden',
+                  whiteSpace: 'nowrap',
+                  textOverflow: 'ellipsis',
                   textAlign: 'left',
-                  width: '100%'
+                  width: '95%',
+                  fontSize: '14px',
+                  color: '#495060'
                 }
               }, params.row.title)
             }
@@ -174,7 +176,7 @@
           difficulty: '',
           tag: '',
           page: 1,
-          orderby: 'create_time'
+          orderby: null
         }
       }
     },
@@ -245,16 +247,16 @@
       },
       filterByTag (tagName) {
         this.query.tag = tagName
-        this.query.page = 1
+        this.query.page = null
         this.pushRouter()
       },
       filterByDifficulty (difficulty) {
         this.query.difficulty = difficulty
-        this.query.page = 1
+        this.query.page = null
         this.pushRouter()
       },
       filterByKeyword () {
-        this.query.page = 1
+        this.query.page = null
         this.pushRouter()
       },
       handleTagsVisible (value) {

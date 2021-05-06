@@ -187,7 +187,7 @@
               <Poptip trigger="hover" placement="left-end">
                 <a>{{$t('m.Show')}}</a>
                 <div slot="content">
-                  <Tag v-for="tag in problem.tags" :key="tag" @click.native="handleRoute('/problem?tag=' + tag + '&page=1')">
+                  <Tag v-for="tag in problem.tags" :key="tag" @click.native="handleRoute('/problem?tag=' + tag)">
                     {{tag}}
                   </Tag>
                 </div>
@@ -211,7 +211,7 @@
         <div slot="title" style="font-size: 16px"><i data-v-20c86fbe="" class="ivu-icon ivu-icon-android-document"></i>
         <span class="card-title">Bài tập mới</span>
         </div>
-        <ul style="margin-left: 40px;margin-bottom: 20px;">
+        <ul style="margin-left: 30px;margin-bottom: 20px;">
           <li style="padding: 5px 0px;"  v-for="p in problemList" :key="p.id">
             <a class="link-style" :href="'/problem/' + p._id">{{p._id}} - {{p.title}}</a>
           </li>
@@ -266,7 +266,7 @@
         graphVisible: false,
         submissionExists: false,
         problemList: [],
-        problemLimit: 15,
+        problemLimit: 10,
         query: {
           keyword: '',
           difficulty: '',
