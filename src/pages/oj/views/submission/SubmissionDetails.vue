@@ -184,7 +184,11 @@
         let data = {id: this.submission.id, shared: shared}
         api.updateSubmission(data).then(res => {
           this.getSubmission()
-          this.$success(this.$i18n.t('m.Succeeded'))
+          if (shared) {
+            this.$success('Người khác có thể xem lời giải của bạn!')
+          } else {
+            this.$success('Người khác không thể xem lời giải của bạn!')
+          }
         }, () => {
         })
       }

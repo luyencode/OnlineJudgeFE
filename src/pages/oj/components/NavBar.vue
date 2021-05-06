@@ -100,7 +100,7 @@
         if (route && route.indexOf('forum') >= 0) {
           window.location.href = '//zalo.me/g/mkfeml532'
         } else if (route && route.indexOf('blog') >= 0) {
-          window.location.href = '//nguyenvanhieu.vn'
+          window.open('https://nguyenvanhieu.vn', '_blank')
         } else if (route && route.indexOf('admin') < 0) {
           this.$router.push(route)
         } else {

@@ -263,7 +263,7 @@ export const m = {
   Uploading_is_in_progress: 'Uploading is in progress, are you sure to leave this page?',
   // SubmissionDetails.vue
   Lang: 'Ngôn ngữ',
-  Share: 'Chia sẻ',
+  Share: 'Công khai',
   UnShare: 'Riêng tư',
   Succeeded: 'Thành công',
   Real_Time: 'Họ tên',
