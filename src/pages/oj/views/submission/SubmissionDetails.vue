@@ -6,8 +6,14 @@
         <div slot="desc" class="content">
           <template v-if="isCE">
             <pre>{{submission.statistic_info.err_info}}</pre>
+            <span v-if="submission.problem">{{$t('m.Problem')}}: <a :href='/problem/ + submission.problem' style="color: #495060;">{{submission.problem}}</a></span>
+            <span>{{$t('m.Time')}}: {{submission.statistic_info.time_cost | submissionTime}}</span>
+            <span>{{$t('m.Memory')}}: {{submission.statistic_info.memory_cost | submissionMemory}}</span>
+            <span>{{$t('m.Lang')}}: {{submission.language}}</span>
+            <span>{{$t('m.Author')}}: {{submission.username}}</span>
           </template>
           <template v-else>
+            <span v-if="submission.problem">{{$t('m.Problem')}}: <a :href='/problem/ + submission.problem' style="color: #495060;">{{submission.problem}}</a></span>
             <span>{{$t('m.Time')}}: {{submission.statistic_info.time_cost | submissionTime}}</span>
             <span>{{$t('m.Memory')}}: {{submission.statistic_info.memory_cost | submissionMemory}}</span>
             <span>{{$t('m.Lang')}}: {{submission.language}}</span>
@@ -166,6 +172,7 @@
             }
           }
           this.submission = data
+          this.submission['problem'] = this.$route.query.problem
         }, () => {
           this.loading = false
         })

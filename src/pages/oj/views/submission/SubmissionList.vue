@@ -96,16 +96,8 @@
                     'color': params.row.title_color
                   },
                   attrs: {
-                    'title': params.row.title + ' ' + params.row.username
-                  },
-                  on: {
-                    click: () => {
-                      this.$router.push(
-                        {
-                          name: 'user-home',
-                          query: {username: params.row.username}
-                        })
-                    }
+                    'title': params.row.title + ' ' + params.row.username,
+                    'href': '/user-home?username=' + params.row.username
                   }
                 }, params.row.username)
               } else {
@@ -118,16 +110,8 @@
                     'color': USER_GRADE[params.row.grade].color
                   },
                   attrs: {
-                    'title': USER_GRADE[params.row.grade].name + ' ' + params.row.username
-                  },
-                  on: {
-                    click: () => {
-                      this.$router.push(
-                        {
-                          name: 'user-home',
-                          query: {username: params.row.username}
-                        })
-                    }
+                    'title': USER_GRADE[params.row.grade].name + ' ' + params.row.username,
+                    'href': '/user-home?username=' + params.row.username
                   }
                 }, params.row.username)
               }
@@ -148,24 +132,14 @@
             title: this.$i18n.t('m.Problem'),
             align: 'center',
             render: (h, params) => {
-              return h('span',
+              return h('a',
                 {
                   style: {
                     color: '#57a3f3',
                     cursor: 'pointer'
                   },
-                  on: {
-                    click: () => {
-                      if (this.contestID) {
-                        this.$router.push(
-                          {
-                            name: 'contest-problem-details',
-                            params: {problemID: params.row.problem, contestID: this.contestID}
-                          })
-                      } else {
-                        this.$router.push({name: 'problem-details', params: {problemID: params.row.problem}})
-                      }
-                    }
+                  attrs: {
+                    'href': this.contestID ? '/contest/' + this.contestID + '/problem/' + params.row.problem : '/problem/' + params.row.problem
                   }
                 },
                 params.row.problem)
@@ -195,15 +169,13 @@
             align: 'center',
             render: (h, params) => {
               if (params.row.show_link) {
-                return h('span', {
+                return h('a', {
                   style: {
                     color: '#57a3f3',
                     cursor: 'pointer'
                   },
-                  on: {
-                    click: () => {
-                      this.$router.push('/status/' + params.row.id)
-                    }
+                  attrs: {
+                    'href': '/status/' + params.row.id + '?problem=' + params.row.problem
                   }
                 }, params.row.id.slice(0, 12))
               } else {
