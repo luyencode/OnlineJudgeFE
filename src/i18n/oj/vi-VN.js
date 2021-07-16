@@ -158,8 +158,8 @@ export const m = {
   Rank: 'Xếp hạng',
   ACM_Rank: 'ACM Rank',
   OI_Rank: 'OI Rank',
-  About: 'About',
-  AboutUs: 'About Us',
+  About: 'Thông tin',
+  AboutUs: 'Về chúng tôi',
   App: 'APP',
   IDE: 'IDE',
   Forum: 'Thảo luận',
@@ -181,7 +181,7 @@ export const m = {
   Forum_Reply_List: 'Danh sách trả lời',
   Forum_No_Reply: 'Chưa có trả lời',
   Sort: 'Sort',
-  Judger: 'Judger',
+  Judger: 'Trình chấm',
   FAQ: 'FAQ',
   Login: 'Đăng nhập',
   Register: 'Đăng ký',
@@ -266,7 +266,7 @@ export const m = {
   Share: 'Công khai',
   UnShare: 'Riêng tư',
   Succeeded: 'Thành công',
-  Real_Time: 'Họ tên',
+  Real_Time: 'Thời gian thực',
   Signal: 'Signal',
   Ranklist_Title: '️️Coder tích cực️️',
   Similar_Site: 'Liên kết hữu ích',
@@ -294,5 +294,6 @@ export const m = {
   UserHomeScore: 'Điểm',
   List_Solved_Problems: 'Danh sách bài đã vượt qua',
   List_Tried_Problems: 'Danh sách bài chưa đạt',
-  UserHomeIntro: 'Đây là một thanh niên lười biếng, chưa làm được bất kỳ bài tập nào.'
+  UserHomeIntro: 'Đây là một thanh niên lười biếng, chưa làm được bất kỳ bài tập nào.',
+  Report: 'Báo lỗi'
 }

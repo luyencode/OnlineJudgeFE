@@ -163,7 +163,6 @@
         let offset = 0
         api.getProblemList(offset, this.problemLimit, this.query).then(res => {
           this.problemList = res.data.data.results
-          console.log(res.data.data.results)
         })
       },
       getAnnouncementList (page = 1) {

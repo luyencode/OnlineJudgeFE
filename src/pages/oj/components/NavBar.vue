@@ -31,14 +31,21 @@
           {{$t('m.Experience_Rank')}}
         </Menu-item>
       </Submenu>
-      <!-- <Menu-item title="Truy cập nhóm Zalo chat" name="/forum">
-        <Icon type="chatbox"></Icon>
-        {{$t('m.Forum')}}
-      </Menu-item> -->
-       <Menu-item title="Truy cập blog Lập Trình Không Khó" name="blog">
-        <Icon type="social-wordpress"></Icon>
-        Blog
-      </Menu-item>
+       <Submenu name="about">
+        <template slot="title">
+          <Icon type="information-circled"></Icon>
+          {{$t('m.About')}}
+        </template>
+        <Menu-item name="/about">
+          {{$t('m.AboutUs')}}
+        </Menu-item>
+        <Menu-item name="/judger">
+          {{$t('m.Judger')}}
+        </Menu-item>
+        <Menu-item name="/FAQ">
+          {{$t('m.FAQ')}}
+        </Menu-item>
+      </Submenu>
       <template v-if="!isAuthenticated">
         <div class="btn-menu">
           <Button type="ghost"
@@ -97,9 +104,7 @@
     methods: {
       ...mapActions(['getProfile', 'changeModalStatus']),
       handleRoute (route) {
-        if (route && route.indexOf('forum') >= 0) {
-          window.location.href = '//zalo.me/g/mkfeml532'
-        } else if (route && route.indexOf('blog') >= 0) {
+        if (route && route.indexOf('blog') >= 0) {
           window.open('https://nguyenvanhieu.vn', '_blank')
         } else if (route && route.indexOf('admin') < 0) {
           this.$router.push(route)

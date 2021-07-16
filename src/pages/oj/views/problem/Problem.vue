@@ -9,6 +9,7 @@
     <div id="problem-main">
       <!--problem main-->
       <Panel :padding="40" shadow>
+        <div class="report"><a title="Báo lỗi bài tập này" target="_blank" href="https://github.com/luyencode/comments/issues/365" rel="noreferrer nofollow noopener"><i class="ivu-icon ivu-icon-bug"></i> {{$t('m.Report')}}</a></div>
         <h2 slot="title" class="problem-title">{{problem._id}} - {{problem.title}}</h2>
         <div id="problem-content" class="markdown-body" v-katex>
           <h3 class="title">{{$t('m.Description')}}</h3>
@@ -368,7 +369,6 @@
         let offset = 0
         api.getProblemList(offset, this.problemLimit, this.query).then(res => {
           this.problemList = res.data.data.results
-          console.log(res.data.data.results)
         })
       },
       changePie (problemData) {
@@ -703,6 +703,19 @@
   0% { color: black; }
   50% { color: blue;}
   100% { color: red; }
+}
+.report {
+  position: absolute;
+  top: 25px; 
+  right: 25px;
+  opacity: 0.5; 
+  color: #495060;
+}
+.report a {
+  color: #495060;
+}
+.report a:hover {
+  color: red;
 }
 </style>
 
