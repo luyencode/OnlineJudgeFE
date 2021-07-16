@@ -122,10 +122,10 @@
         let found = {}
         for (let problems of [ACMProblems, OIProblems]) {
           Object.keys(problems).forEach(problemID => {
-            if (problems[problemID]['status'] === 0 && !found.hasOwnProperty(problems[problemID]['_id'])) {
+            if (problems[problemID]['status'] === 0 && !found.hasOwnProperty(problems[problemID]['_id']) && !problems[problemID]['_id'].startsWith('FH_')) {
               ACProblems.push(problems[problemID]['_id'])
               found[problems[problemID]['_id']] = 1
-            } else if (problems[problemID]['status'] !== 0 && !found.hasOwnProperty(problems[problemID]['_id'])) {
+            } else if (problems[problemID]['status'] !== 0 && !found.hasOwnProperty(problems[problemID]['_id']) && !problems[problemID]['_id'].startsWith('FH_')) {
               TriedProblems.push(problems[problemID]['_id'])
               found[problems[problemID]['_id']] = 1
             }
