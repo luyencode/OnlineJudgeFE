@@ -101,7 +101,7 @@
             render: (h, {row}) => {
               return h('Tag', {
                 props: {
-                  color: row.checked ? 'green' : 'yellow'
+                  color: row.checked ? 'success' : 'warning'
                 }
               }, row.checked ? this.$i18n.t('m.Checked') : this.$i18n.t('m.Not_Checked'))
             }
@@ -116,7 +116,7 @@
                 props: {
                   type: 'ghost',
                   size: 'small',
-                  icon: 'checkmark',
+                  icon: 'md-checkmark',
                   disabled: row.checked
                 },
                 on: {

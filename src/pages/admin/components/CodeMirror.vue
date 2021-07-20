@@ -68,6 +68,6 @@
 
   .CodeMirror-scroll {
     min-height: 300px;
-    max-height: 1000px;
+    max-height: 500px;
   }
 </style>

@@ -9,7 +9,7 @@
     <div id="problem-main">
       <!--problem main-->
       <Panel :padding="40" shadow>
-        <div class="report"><a title="Báo lỗi bài tập này" target="_blank" href="https://github.com/luyencode/comments/issues/365" rel="noreferrer nofollow noopener"><i class="ivu-icon ivu-icon-bug"></i> {{$t('m.Report')}}</a></div>
+        <div class="report"><a title="Báo lỗi bài tập này" target="_blank" onclick="event.preventDefault();window.open('https://github.com/luyencode/comments/issues/365', '_blank');" rel="noreferrer nofollow noopener"><i class="ivu-icon ivu-icon-bug"></i> {{$t('m.Report')}}</a></div>
         <h2 slot="title" class="problem-title">{{problem._id}} - {{problem.title}}</h2>
         <div id="problem-content" class="markdown-body" v-katex>
           <h3 class="title">{{$t('m.Description')}}</h3>
@@ -29,7 +29,7 @@
                      v-clipboard:copy="sample.input" 
                      v-clipboard:success="onCopy"
                      v-clipboard:error="onCopyError">
-                    <Icon type="clipboard"></Icon>
+                    <Icon type="md-clipboard"></Icon>
                   </a>
                 </p>
                 <pre>{{sample.input}}</pre>
@@ -97,7 +97,7 @@
                 <Input v-model="captchaCode" class="captcha-code"/>
               </div>
             </template>
-            <Button type="warning" icon="upload" :loading="submitting" @click="submitCode"
+            <Button type="warning" icon="md-cloud-upload" :loading="submitting" @click="submitCode"
                     :disabled="problemSubmitDisabled || submitted"
                     class="fl-right">
               <span v-if="submitting">{{$t('m.Submitting')}}</span>
@@ -126,7 +126,7 @@
           </VerticalMenu-item>
 
           <VerticalMenu-item :route="{name: 'contest-announcement-list', params: {contestID: contestID}}">
-            <Icon type="chatbubble-working"></Icon>
+            <Icon type="md-chatbubbles"></Icon>
             {{$t('m.Announcements')}}
           </VerticalMenu-item>
         </template>
@@ -137,7 +137,7 @@
               {{$t('m.Submit')}}
           </VerticalMenu-item>
           <VerticalMenu-item v-if="!this.contestID || OIContestRealTimePermission" :route="submissionRoute">
-            <Icon type="navicon-round"></Icon>
+            <Icon type="md-menu"></Icon>
               {{$t('m.Submissions')}}
           </VerticalMenu-item>
         </template>
@@ -145,11 +145,11 @@
         <template v-if="this.contestID">
           <VerticalMenu-item v-if="!this.contestID || OIContestRealTimePermission"
                              :route="{name: 'contest-rank', params: {contestID: contestID}}">
-            <Icon type="stats-bars"></Icon>
+            <Icon type="md-stats"></Icon>
             {{$t('m.Rankings')}}
           </VerticalMenu-item>
           <VerticalMenu-item :route="{name: 'contest-details', params: {contestID: contestID}}">
-            <Icon type="home"></Icon>
+            <Icon type="md-home"></Icon>
             {{$t('m.View_Contest')}}
           </VerticalMenu-item>
         </template>
@@ -157,7 +157,7 @@
 
       <Card id="info">
         <div slot="title" class="header">
-          <Icon type="information-circled"></Icon>
+          <Icon type="md-information-circle"></Icon>
           <span class="card-title">{{$t('m.Information_Problem')}}</span>
         </div>
         <ul>
@@ -286,6 +286,7 @@
         theme: 'solarized',
         submissionId: '',
         submitted: false,
+        exited: false,
         result: {
           result: 9
         },
@@ -313,14 +314,24 @@
     },
     beforeRouteEnter (to, from, next) {
       let problemCode = storage.get(buildProblemCodeKey(to.params.problemID, to.params.contestID))
-      if (!problemCode) {
-        problemCode = storage.get(buildProblemCodeKey('prefer_ide'))
-      }
+      let OverallCode = storage.get(buildProblemCodeKey('Overall'))
       if (problemCode) {
+        if (problemCode.code !== '') {
+          next(vm => {
+            vm.language = problemCode.language
+            vm.code = problemCode.code
+            vm.theme = problemCode.theme
+          })
+        } else if (OverallCode) {
+          next(vm => {
+            vm.language = OverallCode.language
+            vm.theme = OverallCode.theme
+          })
+        }
+      } else if (OverallCode && problemCode === null) {
         next(vm => {
-          vm.language = problemCode.language
-          vm.code = problemCode.code
-          vm.theme = problemCode.theme
+          vm.language = OverallCode.language
+          vm.theme = OverallCode.theme
         })
       } else {
         next()
@@ -351,6 +362,9 @@
 
           // 在beforeRouteEnter中修改了, 说明本地有code，无需加载template
           if (this.code !== '') {
+            return
+          }
+          if (this.language !== 'C' && this.problem.languages.includes(this.language)) {
             return
           }
           // try to load problem template
@@ -542,7 +556,7 @@
       submissionStatus () {
         return {
           text: JUDGE_STATUS[this.result.result]['name'],
-          color: JUDGE_STATUS[this.result.result]['color']
+          color: JUDGE_STATUS[this.result.result]['type']
         }
       },
       submissionRoute () {
@@ -563,8 +577,7 @@
         language: this.language,
         theme: this.theme
       })
-      storage.set(buildProblemCodeKey('prefer_ide'), {
-        code: '',
+      storage.set(buildProblemCodeKey('Overall'), {
         language: this.language,
         theme: this.theme
       })
@@ -639,6 +652,7 @@
     margin-bottom: 20px;
     .status {
       float: left;
+      cursor: pointer;
       span {
         margin-right: 10px;
         margin-left: 10px;

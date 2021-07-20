@@ -55,13 +55,13 @@ export const JUDGE_STATUS = {
   '7': {
     name: 'Judging',
     color: 'blue',
-    type: 'info'
+    type: 'primary'
   },
   '8': {
     name: 'Partial Accepted',
     short: 'PAC',
     color: 'blue',
-    type: 'info'
+    type: 'primary'
   },
   '9': {
     name: 'Submitting',
@@ -79,15 +79,15 @@ export const CONTEST_STATUS = {
 export const CONTEST_STATUS_REVERSE = {
   '1': {
     name: 'Not Started',
-    color: 'yellow'
+    color: 'primary'
   },
   '0': {
     name: 'Underway',
-    color: 'green'
+    color: 'success'
   },
   '-1': {
     name: 'Ended',
-    color: 'red'
+    color: 'error'
   }
 }
 

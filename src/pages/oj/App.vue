@@ -135,8 +135,11 @@
     }
     .ivu-page-item-active {
       background-color: @color;
-		  border-color: @color
+		  border-color: @color;
     }
+    .ivu-page-item-active:hover a, .ivu-page-item-active a {
+    color: #fff;
+}
   	.ivu-page-item:hover {
       border-color: @color;
     }

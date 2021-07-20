@@ -10,11 +10,11 @@
         </Select>
 
         <Tooltip :content="this.$i18n.t('m.Reset_to_default_code_definition')" placement="top" style="margin-left: 10px">
-          <Button icon="refresh" @click="onResetClick"></Button>
+          <Button icon="md-refresh" @click="onResetClick"></Button>
         </Tooltip>
 
         <Tooltip :content="this.$i18n.t('m.Upload_file')" placement="top" style="margin-left: 10px">
-          <Button icon="upload" @click="onUploadFile"></Button>
+          <Button icon="md-cloud-upload" @click="onUploadFile"></Button>
         </Tooltip>
 
         <input type="file" id="file-uploader" style="display: none" @change="onUploadFileDone">
@@ -46,6 +46,8 @@
 
   // mode
   import 'codemirror/mode/clike/clike.js'
+  import 'codemirror/mode/javascript/javascript.js'
+  import 'codemirror/mode/php/php.js'
   import 'codemirror/mode/python/python.js'
   import 'codemirror/mode/go/go.js'
 
@@ -191,6 +193,6 @@
   }
   .CodeMirror-scroll {
     min-height: 300px;
-    max-height: 1000px;
+    max-height: 500px;
   }
 </style>

@@ -10,11 +10,11 @@
                    @on-enter="filterByKeyword"
                    @on-click="filterByKeyword"
                    placeholder="Từ khóa"
-                   icon="ios-search-strong"/>
+                   icon="ios-search"/>
           </li>
           <li>
             <Button type="info" @click="onReset">
-              <Icon type="refresh"></Icon>
+              <Icon type="md-refresh"></Icon>
               {{$t('m.Reset')}}
             </Button>
           </li>
@@ -47,7 +47,7 @@
       <VerticalMenu @on-click="handleRoute" style="margin-top: 10px;cursor: pointer;">
         <VerticalMenu-item :disabled="contestMenuDisabled"
                            :route="{name: 'Forum-post'}" style="cusor:">
-          <Icon type="edit"></Icon>
+          <Icon type="md-create"></Icon>
           {{$t('m.Forum_Post')}}
         </VerticalMenu-item>
       </VerticalMenu>
@@ -100,11 +100,11 @@
                 textAlign: 'left'
               }
               if (params.row.is_top) {
-                top = 'pin'
+                top = 'md-flag'
                 topmargin = '0 0 0 8px'
               }
               if (params.row.is_nice) {
-                nice = 'star'
+                nice = 'md-star'
                 nicemargin = '0 2px 0 8px'
               }
               if (params.row.is_light) {
@@ -141,7 +141,8 @@
                 h('Icon', {
                   props: {
                     type: top,
-                    size: '14'
+                    size: '14',
+                    color: '#ff7675'
                   },
                   style: {
                     margin: topmargin
@@ -247,9 +248,6 @@
           this.loadings.table = false
           this.total = res.data.data.total
           this.ForumList = res.data.data.results
-          if (this.isAuthenticated) {
-            this.addStatusColumn(this.problemTableColumns, res.data.data.results)
-          }
         }, res => {
           this.loadings.table = false
         })

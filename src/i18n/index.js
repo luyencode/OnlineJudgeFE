@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 // ivew UI
-import ivenUS from 'iview/dist/locale/en-US'
-import ivenVN from 'iview/dist/locale/vi-VN'
+import ivenUS from 'view-design/dist/locale/en-US'
+import ivenVN from 'view-design/dist/locale/vi-VN'
 // import ivzhCN from 'iview/dist/locale/zh-CN'
 // import ivzhTW from 'iview/dist/locale/zh-TW'
 // element UI
