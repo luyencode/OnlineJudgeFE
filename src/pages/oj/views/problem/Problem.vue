@@ -9,7 +9,7 @@
     <div id="problem-main">
       <!--problem main-->
       <Panel :padding="40" shadow>
-        <div class="report"><a title="Báo lỗi bài tập này" target="_blank" onclick="event.preventDefault();window.open('https://github.com/luyencode/comments/issues/365', '_blank');" rel="noreferrer nofollow noopener"><i class="ivu-icon ivu-icon-bug"></i> {{$t('m.Report')}}</a></div>
+        <div class="report"><a title="Báo lỗi bài tập này" target="_blank" onclick="event.preventDefault();window.open('https://github.com/luyencode/comments/issues/365', '_blank');" rel="noreferrer nofollow noopener"><i class="ivu-icon ivu-icon-md-bug"></i> {{$t('m.Report')}}</a></div>
         <h2 slot="title" class="problem-title">{{problem._id}} - {{problem.title}}</h2>
         <div id="problem-content" class="markdown-body" v-katex>
           <h3 class="title">{{$t('m.Description')}}</h3>
@@ -35,7 +35,14 @@
                 <pre>{{sample.input}}</pre>
               </div>
               <div class="sample-output">
-                <p class="title" style="font-size: 15px;">{{$t('m.Sample_Output')}} #{{index + 1}}</p>
+                <p class="title" style="font-size: 15px;">{{$t('m.Sample_Output')}} #{{index + 1}}
+                  <a class="copy"
+                     v-clipboard:copy="sample.output" 
+                     v-clipboard:success="onCopy"
+                     v-clipboard:error="onCopyError">
+                    <Icon type="md-clipboard"></Icon>
+                  </a>
+                </p>
                 <pre>{{sample.output}}</pre>
               </div>
             </div>
@@ -203,7 +210,7 @@
         <div slot="title">
           <Icon type="ios-analytics"></Icon>
           <span class="card-title">{{$t('m.Statistic')}}</span>
-          <Button type="ghost" size="small" id="detail" @click="graphVisible = !graphVisible">{{$t('m.Details')}}</Button>
+          <Button size="small" id="detail" @click="graphVisible = !graphVisible">{{$t('m.Details')}}</Button>
         </div>
         <div class="echarts">
           <ECharts :options="pie"></ECharts>
@@ -238,7 +245,7 @@
         <ECharts :options="largePie" :initOptions="largePieInitOpts"></ECharts>
       </div>
       <div slot="footer">
-        <Button type="ghost" @click="graphVisible=false">{{$t('m.Close')}}</Button>
+        <Button @click="graphVisible=false">{{$t('m.Close')}}</Button>
       </div>
     </Modal>
   </div>

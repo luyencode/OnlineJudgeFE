@@ -13,7 +13,7 @@
         {{$t('m.Contests')}}
       </Menu-item>
       <Menu-item name="/status" >
-        <Icon type="md-upload"></Icon>
+        <Icon type="md-cloud-upload"></Icon>
         {{$t('m.NavStatus')}}
       </Menu-item>
       <Submenu name="rank">
@@ -48,13 +48,12 @@
       </Submenu>
       <template v-if="!isAuthenticated">
         <div class="btn-menu">
-          <Button type="ghost"
+          <Button
                   ref="loginBtn"
                   shape="circle"
                   @click="handleBtnClick('login')">{{$t('m.Login')}}
           </Button>
           <Button v-if="website.allow_register"
-                  type="ghost"
                   shape="circle"
                   @click="handleBtnClick('register')"
                   style="margin-left: 5px;">{{$t('m.Register')}}

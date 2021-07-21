@@ -57,7 +57,7 @@
           <p v-else>{{$t('m.UserHomeIntro')}}</p>
           <div class="btns">
             <div class="problem-btn" v-for="problemID of ac_problems" :key="problemID">
-              <Button type="ghost" @click="goProblem(problemID)">{{problemID}}</Button>
+              <Button  @click="goProblem(problemID)">{{problemID}}</Button>
             </div>
           </div>
           <div v-if="tried_problems.length" style="margin-top: 30px;">{{$t('m.List_Tried_Problems')}} ({{tried_problems.length}})
@@ -71,7 +71,7 @@
           </div>
           <div class="btns">
             <div class="problem-btn" v-for="problemID of tried_problems" :key="problemID">
-            <Button type="ghost" @click="goProblem(problemID)">{{problemID}}</Button>
+            <Button @click="goProblem(problemID)">{{problemID}}</Button>
             </div>
           </div>
         </div>

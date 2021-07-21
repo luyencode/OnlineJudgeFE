@@ -45,7 +45,6 @@
         {{$t('m.UserRegister')}}
       </Button>
       <Button
-        type="ghost"
         @click="switchMode('login')"
         class="btn" long>
         {{$t('m.Already_Registed')}}

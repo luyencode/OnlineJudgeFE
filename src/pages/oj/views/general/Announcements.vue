@@ -7,7 +7,7 @@
         </div>
         <div slot="extra">
           <Button v-if="listVisible" type="info" @click="init" :loading="btnLoading"><span class="ivu-icon ivu-icon-refresh"></span> {{$t('m.Refresh')}}</Button>
-          <Button v-else type="ghost" icon="ios-undo" @click="goBack">{{$t('m.Back')}}</Button>
+          <Button v-else icon="ios-undo" @click="goBack">{{$t('m.Back')}}</Button>
         </div>
         <transition-group name="announcement-animate" mode="in-out">
           <div class="no-announcement" v-if="!announcements.length" key="no-announcement">
@@ -53,7 +53,6 @@
                 <div slot="title" style="margin-left: -10px 0px 0px -20px;">{{$t('m.TagsTitle')}}</div>
                 <Button v-for="tag in tagList"
                         :key="tag.name"
-                        type="ghost"
                         :disabled="query.tag === tag.name"
                         shape="circle"
                         class="tag-btn"><a class="link-style" :href="'/problem?tag=' + tag.name">{{tag.name}}</a>

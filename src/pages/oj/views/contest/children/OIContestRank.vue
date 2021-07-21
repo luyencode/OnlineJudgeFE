@@ -28,7 +28,7 @@
             <i-switch v-model="showRealName"></i-switch>
           </p>
           <p>
-            <Button type="primary" size="small" @click="downloadRankCSV">{{$t('m.download_csv')}}</Button>
+            <Button type="primary" ghost size="small" @click="downloadRankCSV">{{$t('m.download_csv')}}</Button>
           </p>
         </div>
       </Poptip>

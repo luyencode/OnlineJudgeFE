@@ -115,19 +115,11 @@
       color: @color;
       border-bottom: 2px solid @color;
     }
-	  .ivu-btn-ghost:hover {
-	  	border-color: @ivu-btn-info;
-	  }
 	  .ivu-menu-horizontal .ivu-menu-submenu .ivu-select-dropdown .ivu-menu-item-selected, .ivu-menu-horizontal .ivu-menu-submenu .ivu-select-dropdown .ivu-menu-item-selected:hover {
       color: #fff;
     }
 	  .ivu-menu-horizontal .ivu-menu-submenu .ivu-select-dropdown .ivu-menu-item-selected, .ivu-menu-horizontal .ivu-menu-submenu .ivu-select-dropdown .ivu-menu-item-selected:hover {
       background: @color;
-    }
-	  .ivu-btn-ghost:hover {
-      color: @color;
-      background-color: transparent;
-      border-color: @color;
     }
     .ivu-btn-info {
       background-color: @ivu-btn-info;
@@ -137,9 +129,11 @@
       background-color: @color;
 		  border-color: @color;
     }
-    .ivu-page-item-active:hover a, .ivu-page-item-active a {
-    color: #fff;
-}
+
+    li.ivu-page-item.ivu-page-item-active > a {
+      color: #fff;
+    }
+
   	.ivu-page-item:hover {
       border-color: @color;
     }
