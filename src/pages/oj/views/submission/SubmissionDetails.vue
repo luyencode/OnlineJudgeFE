@@ -4,20 +4,14 @@
       <Alert :type="status.type" showIcon>
         <span class="title">{{$t('m.' + status.statusName.replace(/ /g, "_"))}}</span>
         <div slot="desc" class="content">
-          <template v-if="isCE">
-            <pre>{{submission.statistic_info.err_info}}</pre>
-            <span v-if="submission.problem">{{$t('m.Problem')}}: <a :href='/problem/ + submission.problem' style="color: #495060;">{{submission.problem}}</a></span>
+          <template>
+            <pre  v-if="isCE">{{submission.statistic_info.err_info}}</pre>
+            <span v-if="submission.problem && submission.contest">{{$t('m.Problem')}}: <a :href="'/contest/' + submission.contest + '/problem/' + submission.problem" style="color: #495060;">{{submission.problem}}</a></span>
+            <span v-else-if="submission.problem">{{$t('m.Problem')}}: <a :href='/problem/ + submission.problem' style="color: #495060;">{{submission.problem}}</a></span>
             <span>{{$t('m.Time')}}: {{submission.statistic_info.time_cost | submissionTime}}</span>
             <span>{{$t('m.Memory')}}: {{submission.statistic_info.memory_cost | submissionMemory}}</span>
             <span>{{$t('m.Lang')}}: {{submission.language}}</span>
-            <span>{{$t('m.Author')}}: {{submission.username}}</span>
-          </template>
-          <template v-else>
-            <span v-if="submission.problem">{{$t('m.Problem')}}: <a :href='/problem/ + submission.problem' style="color: #495060;">{{submission.problem}}</a></span>
-            <span>{{$t('m.Time')}}: {{submission.statistic_info.time_cost | submissionTime}}</span>
-            <span>{{$t('m.Memory')}}: {{submission.statistic_info.memory_cost | submissionMemory}}</span>
-            <span>{{$t('m.Lang')}}: {{submission.language}}</span>
-            <span>{{$t('m.Author')}}: {{submission.username}}</span>
+            <span>{{$t('m.Author')}}: <a :href="'/user-home?username=' + submission.username" style="color: #495060;">{{submission.username}}</a></span>
           </template>
         </div>
       </Alert>
@@ -173,6 +167,7 @@
           }
           this.submission = data
           this.submission['problem'] = this.$route.query.problem
+          this.submission['contest'] = this.$route.query.contest
         }, () => {
           this.loading = false
         })

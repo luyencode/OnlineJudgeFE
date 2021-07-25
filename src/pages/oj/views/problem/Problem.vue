@@ -76,7 +76,10 @@
             <div class="status" v-if="statusVisible">
               <template v-if="!this.contestID || (this.contestID && OIContestRealTimePermission)">
                 <span>{{$t('m.Status')}}</span>
-                <Tag type="dot" :color="submissionStatus.color" title="Click để xem chi tiết" @click.native="handleRoute('/status/'+submissionId+'?problem=' + problem._id)">
+                <Tag v-if="this.contestID" type="dot" :color="submissionStatus.color" title="Click để xem chi tiết" @click.native="handleRoute('/status/'+submissionId+'?problem=' + problem._id + '&contest=' + contestID)">
+                  {{$t('m.' + submissionStatus.text.replace(/ /g, "_"))}}
+                </Tag>
+                <Tag v-else type="dot" :color="submissionStatus.color" title="Click để xem chi tiết" @click.native="handleRoute('/status/'+submissionId+'?problem=' + problem._id)">
                   {{$t('m.' + submissionStatus.text.replace(/ /g, "_"))}}
                 </Tag>
               </template>
@@ -363,7 +366,6 @@
           api.submissionExists(problem.id).then(res => {
             this.submissionExists = res.data.data
           })
-          problem.languages = problem.languages.sort()
           this.problem = problem
           this.changePie(problem)
 
