@@ -1,7 +1,21 @@
 <template>
   <Row type="flex" :gutter="20">
     <Col :span="19" id="status">
-      <Alert :type="status.type" showIcon>
+      <Alert v-if="status.type !== 'primary'" :type="status.type" show-icon>
+        <span class="title">{{$t('m.' + status.statusName.replace(/ /g, "_"))}}</span>
+        <div slot="desc" class="content">
+          <template>
+            <pre  v-if="isCE">{{submission.statistic_info.err_info}}</pre>
+            <span v-if="submission.problem && submission.contest">{{$t('m.Problem')}}: <a :href="'/contest/' + submission.contest + '/problem/' + submission.problem" style="color: #495060;">{{submission.problem}}</a></span>
+            <span v-else-if="submission.problem">{{$t('m.Problem')}}: <a :href='/problem/ + submission.problem' style="color: #495060;">{{submission.problem}}</a></span>
+            <span>{{$t('m.Time')}}: {{submission.statistic_info.time_cost | submissionTime}}</span>
+            <span>{{$t('m.Memory')}}: {{submission.statistic_info.memory_cost | submissionMemory}}</span>
+            <span>{{$t('m.Lang')}}: {{submission.language}}</span>
+            <span>{{$t('m.Author')}}: <a :href="'/user-home?username=' + submission.username" style="color: #495060;">{{submission.username}}</a></span>
+          </template>
+        </div>
+      </Alert>
+      <Alert v-else show-icon>
         <span class="title">{{$t('m.' + status.statusName.replace(/ /g, "_"))}}</span>
         <div slot="desc" class="content">
           <template>
@@ -197,6 +211,7 @@
     },
     computed: {
       status () {
+        console.log(JUDGE_STATUS[this.submission.result])
         return {
           type: JUDGE_STATUS[this.submission.result].type,
           statusName: JUDGE_STATUS[this.submission.result].name,
