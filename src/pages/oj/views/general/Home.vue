@@ -49,7 +49,7 @@
       }
     },
     mounted () {
-      let params = {status: CONTEST_STATUS.NOT_START}
+      let params = { status: CONTEST_STATUS.ENDED }
       api.getContestList(0, 5, params).then(res => {
         this.contests = res.data.data.results
       })
