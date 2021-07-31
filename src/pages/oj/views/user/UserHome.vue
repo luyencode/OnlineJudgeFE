@@ -32,7 +32,7 @@
         <div class="flex-container">
           <div class="left">
             <p>{{$t('m.UserHomeSolved')}}</p>
-            <p class="emphasis">{{ac_problems.length}}</p>
+            <p class="emphasis">{{this.count_ac}}</p>
           </div>
           <div class="middle">
             <p>{{$t('m.UserHomeserSubmissions')}}</p>
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div id="problems">
-          <div v-if="ac_problems.length">{{$t('m.List_Solved_Problems')}} ({{ac_problems.length}})
+          <div v-if="this.count_ac">{{$t('m.List_Solved_Problems')}} ({{this.count_ac}})
             <Poptip v-if="refreshVisible" trigger="hover" placement="right-start">
               <Icon type="ios-help-outline"></Icon>
               <div slot="content">
@@ -60,7 +60,7 @@
               <Button  @click="goProblem(problemID)">{{problemID}}</Button>
             </div>
           </div>
-          <div v-if="tried_problems.length" style="margin-top: 30px;">{{$t('m.List_Tried_Problems')}} ({{tried_problems.length}})
+          <div v-if="this.count_tried" style="margin-top: 30px;">{{$t('m.List_Tried_Problems')}} ({{this.count_tried}})
             <Poptip v-if="refreshVisible" trigger="hover" placement="right-start">
               <Icon type="ios-help-outline"></Icon>
               <div slot="content">
@@ -91,7 +91,9 @@
         username: '',
         profile: {},
         ac_problems: [],
+        count_ac: 0,
         tried_problems: [],
+        count_tried: 0,
         color: '',
         gradename: ''
       }
@@ -120,19 +122,29 @@
         let ACProblems = []
         let TriedProblems = []
         let found = {}
+        let CountAC = 0
+        let CountTried = 0
         for (let problems of [ACMProblems, OIProblems]) {
           Object.keys(problems).forEach(problemID => {
-            if (problems[problemID]['status'] === 0 && !found.hasOwnProperty(problems[problemID]['_id']) && !problems[problemID]['_id'].startsWith('FH_')) {
-              ACProblems.push(problems[problemID]['_id'])
-              found[problems[problemID]['_id']] = 1
-            } else if (problems[problemID]['status'] !== 0 && !found.hasOwnProperty(problems[problemID]['_id']) && !problems[problemID]['_id'].startsWith('FH_')) {
-              TriedProblems.push(problems[problemID]['_id'])
-              found[problems[problemID]['_id']] = 1
+            if (problems[problemID]['status'] === 0 && !found.hasOwnProperty(problems[problemID]['_id'])) {
+              if (!problems[problemID]['_id'].startsWith('FH_')) {
+                ACProblems.push(problems[problemID]['_id'])
+                found[problems[problemID]['_id']] = 1
+              }
+              CountAC += 1
+            } else if (problems[problemID]['status'] !== 0 && !found.hasOwnProperty(problems[problemID]['_id'])) {
+              if (!problems[problemID]['_id'].startsWith('FH_')) {
+                TriedProblems.push(problems[problemID]['_id'])
+                found[problems[problemID]['_id']] = 1
+              }
+              CountTried += 1
             }
           })
         }
         this.ac_problems = ACProblems.sort()
         this.tried_problems = TriedProblems.sort()
+        this.count_ac = CountAC
+        this.count_tried = CountTried
       },
       goProblem (problemID) {
         this.$router.push({name: 'problem-details', params: {problemID: problemID}})

@@ -77,10 +77,10 @@
               <template v-if="!this.contestID || (this.contestID && OIContestRealTimePermission)">
                 <span>{{$t('m.Status')}}</span>
                 <Tag v-if="this.contestID" type="dot" :color="submissionStatus.color" title="Click để xem chi tiết" @click.native="handleRoute('/status/'+submissionId+'?problem=' + problem._id + '&contest=' + contestID)">
-                  {{$t('m.' + submissionStatus.text.replace(/ /g, "_"))}}
+                  {{$t('m.' + submissionStatus.text.replace(/ /g, "_"))}} ({{this.ACTestCase}}/{{this.totalTestCase}})
                 </Tag>
                 <Tag v-else type="dot" :color="submissionStatus.color" title="Click để xem chi tiết" @click.native="handleRoute('/status/'+submissionId+'?problem=' + problem._id)">
-                  {{$t('m.' + submissionStatus.text.replace(/ /g, "_"))}}
+                  {{$t('m.' + submissionStatus.text.replace(/ /g, "_"))}}  ({{this.ACTestCase}}/{{this.totalTestCase}})
                 </Tag>
               </template>
               <template v-else-if="this.contestID && !OIContestRealTimePermission">
@@ -122,7 +122,7 @@
           <li><a rel="nofollow noopener noreferrer" target="_blank" class="animation-text" href="https://gist.github.com/nguyenvanhieuvn/d3e5e20c44ef9d565fa3d7b9ebabfc65">Quy tắc thảo luận &#38; hướng dẫn đăng bình luận ✍️</a></li>
           <li><span style="font-weight: 600;">NÊN</span> thảo luận giải pháp 😘, <span style="font-weight: 600;">KHÔNG NÊN</span> chia sẻ code 😐</li>
           <li>Mọi source code đăng mà không được ẩn sẽ bị BOT xóa tự động 😭</li>
-          <li>Tham gia nhóm thảo luận luyện code trên Zalo <a target="_blank" href="https://zalo.me/g/mkfeml532/">tại đây</a> 👈</li>
+          <li>Tham gia nhóm thảo luận luyện code trên Zalo <a target="_blank" href="https://zalo.me/g/mkfeml532">tại đây</a> 👈</li>
         </ul>
         <script type="application/javascript" src="https://utteranc.es/client.js" repo="luyencode/comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
       </Card>
@@ -143,7 +143,7 @@
 
         <template v-if="!this.contestID">
           <VerticalMenu-item v-if="!this.contestID || OIContestRealTimePermission" onclick="let e = document.getElementById('submit-code');window.scrollTo(0, e.offsetTop);">
-            <Icon type="upload"></Icon>
+            <Icon type="md-cloud-upload"></Icon>
               {{$t('m.Submit')}}
           </VerticalMenu-item>
           <VerticalMenu-item v-if="!this.contestID || OIContestRealTimePermission" :route="submissionRoute">
@@ -310,6 +310,8 @@
           created_by: {
             username: ''
           },
+          totalTestCase: 0,
+          ACTestCase: 0,
           tags: [],
           io_mode: {'io_mode': 'Standard IO'}
         },
@@ -467,6 +469,13 @@
           let id = this.submissionId
           api.getSubmission(id).then(res => {
             this.result = res.data.data
+            this.totalTestCase = res.data.data.info.data.length
+            this.ACTestCase = 0
+            for (let tc of res.data.data.info.data) {
+              if (tc.score > 0) {
+                this.ACTestCase += 1
+              }
+            }
             if (Object.keys(res.data.data.statistic_info).length !== 0) {
               this.submitting = false
               this.submitted = false
@@ -488,6 +497,8 @@
           return
         }
         this.submissionId = ''
+        this.ACTestCase = 0
+        this.totalTestCase = 0
         this.result = {result: 9}
         this.submitting = true
         let data = {
@@ -548,10 +559,10 @@
         }
       },
       onCopy (event) {
-        this.$success('Code copied')
+        this.$success('Đã sao chép vào khay nhớ tạm!')
       },
       onCopyError (e) {
-        this.$error('Failed to copy code')
+        this.$error('Có lỗi rồi!')
       }
     },
     computed: {
