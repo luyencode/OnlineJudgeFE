@@ -77,10 +77,10 @@
               <template v-if="!this.contestID || (this.contestID && OIContestRealTimePermission)">
                 <span>{{$t('m.Status')}}</span>
                 <Tag v-if="this.contestID" type="dot" :color="submissionStatus.color" title="Click để xem chi tiết" @click.native="handleRoute('/status/'+submissionId+'?problem=' + problem._id + '&contest=' + contestID)">
-                  {{$t('m.' + submissionStatus.text.replace(/ /g, "_"))}} ({{this.ACTestCase}}/{{this.totalTestCase}})
+                  {{$t('m.' + submissionStatus.text.replace(/ /g, "_"))}}  {{this.resultSummary}}
                 </Tag>
                 <Tag v-else type="dot" :color="submissionStatus.color" title="Click để xem chi tiết" @click.native="handleRoute('/status/'+submissionId+'?problem=' + problem._id)">
-                  {{$t('m.' + submissionStatus.text.replace(/ /g, "_"))}}  ({{this.ACTestCase}}/{{this.totalTestCase}})
+                  {{$t('m.' + submissionStatus.text.replace(/ /g, "_"))}}  {{this.resultSummary}}
                 </Tag>
               </template>
               <template v-else-if="this.contestID && !OIContestRealTimePermission">
@@ -121,8 +121,15 @@
         <ul style="margin-left: 30px;margin-top: 20px;">
           <li><a rel="nofollow noopener noreferrer" target="_blank" class="animation-text" href="https://gist.github.com/nguyenvanhieuvn/d3e5e20c44ef9d565fa3d7b9ebabfc65">Quy tắc thảo luận &#38; hướng dẫn đăng bình luận ✍️</a></li>
           <li><span style="font-weight: 600;">NÊN</span> thảo luận giải pháp 😘, <span style="font-weight: 600;">KHÔNG NÊN</span> chia sẻ code 😐</li>
-          <li>Mọi source code đăng mà không được ẩn sẽ bị BOT xóa tự động 😭</li>
-          <li>Tham gia nhóm thảo luận luyện code trên Zalo <a target="_blank" href="https://zalo.me/g/mkfeml532">tại đây</a> 👈</li>
+          <li title="Không khuyến khích các bạn chia sẻ lời giải nha">Mọi source code đăng mà không được ẩn sẽ bị BOT xóa tự động 😭</li>
+          <li title="BOT của Luyện Code cũng sẽ thường xuyên kiểm duyệt nha"><span style="font-weight: 600;">KHÔNG NÊN</span> để lộ thông tin cá nhân (SĐT, email, Facebook, ...)</li>
+          <li>Tham gia thảo luận bài tập tại
+            <span style="position: relative;">
+              <a href="https://discord.gg/hpeRrbccfZ" target="_blank" style="position: absolute; left: 10px">
+                <img alt="Discord" src="https://img.shields.io/discord/879371214806712340?label=Discord&logo=Discord">
+              </a>
+            </span>
+          </li>
         </ul>
         <script type="application/javascript" src="https://utteranc.es/client.js" repo="luyencode/comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script>
       </Card>
@@ -220,7 +227,7 @@
         </div>
       </Card>
       <Card style="margin-top: 20px;" :padding="0" v-if="!this.contestID || OIContestRealTimePermission">
-        <div slot="title" style="font-size: 16px"><i data-v-20c86fbe="" class="ivu-icon ivu-icon-android-document"></i>
+        <div slot="title" style="font-size: 16px"><i data-v-20c86fbe="" class="ivu-icon ivu-icon-md-document"></i>
         <span class="card-title">Bài tập mới</span>
         </div>
         <ul style="margin-left: 30px;margin-bottom: 20px;">
@@ -230,7 +237,7 @@
         </ul>
       </Card>
       <Card style="margin-top: 20px;" :padding="10" v-if="!this.contestID || OIContestRealTimePermission">
-        <div slot="title" style="font-size: 16px;"><i data-v-20c86fbe="" class="ivu-icon ivu-icon-android-favorite" style="color: red; font-size:1.2em;"></i>
+        <div slot="title" style="font-size: 16px;"><i data-v-20c86fbe="" class="ivu-icon ivu-icon-md-heart" style="color: red; font-size:1.2em;"></i>
         <span class="card-title">Ủng hộ Luyện Code</span>
         </div>
         Ủng hộ 10.000đ giúp chúng tôi phát triển website hơn nữa:
@@ -312,6 +319,7 @@
           },
           totalTestCase: 0,
           ACTestCase: 0,
+          resultSummary: '',
           tags: [],
           io_mode: {'io_mode': 'Standard IO'}
         },
@@ -469,13 +477,16 @@
           let id = this.submissionId
           api.getSubmission(id).then(res => {
             this.result = res.data.data
-            this.totalTestCase = res.data.data.info.data.length
-            this.ACTestCase = 0
-            for (let tc of res.data.data.info.data) {
-              if (tc.score > 0) {
-                this.ACTestCase += 1
+            try {
+              this.totalTestCase = res.data.data.info.data.length
+              this.ACTestCase = 0
+              for (let tc of res.data.data.info.data) {
+                if (tc.score > 0) {
+                  this.ACTestCase += 1
+                }
               }
-            }
+              this.resultSummary = '(' + this.ACTestCase + '/' + this.totalTestCase + ')'
+            } catch (e) {}
             if (Object.keys(res.data.data.statistic_info).length !== 0) {
               this.submitting = false
               this.submitted = false
@@ -499,6 +510,7 @@
         this.submissionId = ''
         this.ACTestCase = 0
         this.totalTestCase = 0
+        this.resultSummary = ''
         this.result = {result: 9}
         this.submitting = true
         let data = {
