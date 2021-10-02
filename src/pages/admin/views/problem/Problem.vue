@@ -550,6 +550,11 @@
             return
           }
         }
+        if (this.problem.memory_limit > 256) {
+          this.error.memory_limit = 'Memory limit shouldn\'t greater than  256'
+          this.$error(this.error.memory_limit)
+          return
+        }
         if (!this.problem.languages.length) {
           this.error.languages = 'Please choose at least one language for problem'
           this.$error(this.error.languages)
