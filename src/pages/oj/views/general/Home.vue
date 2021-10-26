@@ -51,7 +51,11 @@
     mounted () {
       let params = { status: CONTEST_STATUS.ENDED }
       api.getContestList(0, 5, params).then(res => {
-        this.contests = res.data.data.results
+        for (let contest of res.data.data.results) {
+          if (contest['contest_type'] === 'Public') {
+            this.contests.push(contest)
+          }
+        }
       })
     },
     methods: {
