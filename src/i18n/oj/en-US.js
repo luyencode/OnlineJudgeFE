@@ -268,6 +268,7 @@ export const m = {
   Signal: 'Signal',
   Ranklist_Title: 'Top coder',
   Similar_Site: 'Similar sites',
+  Statistics: 'Statistics',
   // SubmissionList.vue
   When: 'When',
   ID: 'ID',

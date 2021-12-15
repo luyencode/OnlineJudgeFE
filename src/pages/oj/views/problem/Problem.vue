@@ -206,7 +206,7 @@
               <Poptip trigger="hover" placement="left-end">
                 <a>{{$t('m.Show')}}</a>
                 <div slot="content">
-                  <Tag v-for="tag in problem.tags" :key="tag" @click.native="handleRoute('/problem?tag=' + tag)">
+                  <Tag style="cursor: pointer;" v-for="tag in problem.tags" :key="tag" @click.native="handleRoute('/problem?tag=' + tag)">
                     {{tag}}
                   </Tag>
                 </div>
@@ -228,7 +228,7 @@
       </Card>
       <Card style="margin-top: 20px;" :padding="0" v-if="!this.contestID || OIContestRealTimePermission">
         <div slot="title" style="font-size: 16px"><i data-v-20c86fbe="" class="ivu-icon ivu-icon-md-document"></i>
-        <span class="card-title">Bài tập mới</span>
+        <span class="card-title">Bài tập tương tự</span>
         </div>
         <ul style="margin-left: 30px;margin-bottom: 20px;">
           <li style="padding: 5px 0px;"  v-for="p in problemList" :key="p.id">
@@ -243,10 +243,10 @@
         Ủng hộ 10.000đ giúp chúng tôi phát triển website hơn nữa:
         <ul style="margin-left: 20px;margin-bottom: 10px;">
           <li style="padding: 5px 0px;"><span style="color: green;">VPBank</span>: Nguyễn Văn Hiếu, STK: 146301158, chi nhánh Đông Đô</li>
-          <li style="padding: 5px 0px;"><span style="color: green;">MoMo/Zalopay</span>: Nguyễn Văn Hiếu, SĐT: 0349346164</li>
+          <li style="padding: 5px 0px;"><span style="color: green;">MoMo</span>: <a style="color: #495060;" target="_blank" href="https://me.momo.vn/nguyenvanhieu">me.momo.vn/nguyenvanhieu</a></li>
           <li style="padding: 5px 0px;"><span style="color: green;">Paypal</span>: <a style="color: #495060;" target="_blank" href="https://www.paypal.me/nguyenvanhieuvn">paypal.me/nguyenvanhieuvn</a></li>
         </ul>
-        Bạn cũng có thể tham gia đội đóng góp bài tập cho Luyện Code, liên hệ <a href="https://fb.com/hieunv.me" target="_blank">admin</a> để được hướng dẫn chi tiết.
+        Nếu thấy website hữu ích, hãy chia sẻ tới bạn bè để cùng nhau học tập và tiến bộ mỗi ngày nhé!
       </Card>
     </div>
   
@@ -360,7 +360,6 @@
     mounted () {
       this.$store.commit(types.CHANGE_CONTEST_ITEM_VISIBLE, {menu: false})
       this.init()
-      this.getProblemList()
     },
     methods: {
       ...mapActions(['changeDomTitle']),
@@ -372,13 +371,14 @@
         api[func](this.problemID, this.contestID).then(res => {
           this.$Loading.finish()
           let problem = res.data.data
+          this.query['tag'] = res.data.data.tags[0]
           this.changeDomTitle({title: problem.title})
           api.submissionExists(problem.id).then(res => {
             this.submissionExists = res.data.data
           })
           this.problem = problem
           this.changePie(problem)
-
+          this.getProblemList()
           // 在beforeRouteEnter中修改了, 说明本地有code，无需加载template
           if (this.code !== '') {
             return

@@ -127,7 +127,7 @@ export function buildProblemCodeKey (problemID, contestID = null) {
   return `${STORAGE_KEY.PROBLEM_CODE}_NaN_${problemID}`
 }
 
-export const GOOGLE_ANALYTICS_ID = 'G-XDNWTTDQ1W'
+export const GOOGLE_ANALYTICS_ID = ''
 
 export const USER_GRADE = {
   '0': {

@@ -51,7 +51,7 @@
 
     <Col :span="5">
       <Panel :padding="10">
-        <div slot="title" class="taglist-title">{{$t('m.TagsTitle')}}</div>
+        <div slot="title" class="taglist-title"><Icon type="md-pricetags" /> {{$t('m.TagsTitle')}}</div>
         <Button long id="pick-one" @click="pickone">
           <Icon type="shuffle"></Icon>
           {{$t('m.Pick_One')}}

@@ -270,6 +270,7 @@ export const m = {
   Signal: 'Signal',
   Ranklist_Title: '️️Coder tích cực️️',
   Similar_Site: 'Liên kết hữu ích',
+  Statistics: 'Thống kê',
   // SubmissionList.vue
   When: '#',
   ID: 'ID',

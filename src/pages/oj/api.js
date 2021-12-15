@@ -341,6 +341,9 @@ export default {
     return ajax('forumreply', 'delete', {
       params: params
     })
+  },
+  getDashboardInfo () {
+    return ajax('dashboard_info', 'get')
   }
 }
 

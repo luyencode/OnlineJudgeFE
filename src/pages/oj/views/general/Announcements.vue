@@ -3,7 +3,7 @@
     <Col :span="containerSpan">
       <Panel shadow :padding="10" >
         <div slot="title">
-          {{title}}
+          <Icon type="md-notifications" /> {{title}}
         </div>
         <div slot="extra">
           <Button v-if="listVisible" type="info" @click="init" :loading="btnLoading"><span class="ivu-icon ivu-icon-ios-refresh"></span> {{$t('m.Refresh')}}</Button>
@@ -18,7 +18,7 @@
               <li v-for="announcement in announcements" :key="announcement.title">
                 <div class="flex-container">
                   <div class="title"><a class="entry" @click="goAnnouncement(announcement)">
-                    {{announcement.title}}</a></div>
+                    <Icon type="md-bookmark" /> {{announcement.title}}</a></div>
                   <div class="date">{{announcement.create_time | localtime }}</div>
                   <div class="creator"> {{$t('m.By')}} {{announcement.created_by.username}}</div>
                 </div>
@@ -40,7 +40,7 @@
       <Row v-if="!isContest" type="flex" :gutter="10" style="margin-top: 70px;">
             <Col  :span="12">
               <Panel shadow style="padding-top: 0px;padding-bottom: 10px;">
-                <div slot="title" style="margin-left: -10px;margin-bottom: -10px;">Bài tập mới</div>
+                <div slot="title" style="margin-left: -10px;margin-bottom: -10px;"><Icon type="md-document" /> Bài tập mới</div>
                 <ul style="margin-left: 40px;margin-bottom: 20px;">
                   <li style="padding: 5px 0px;"  v-for="p in problemList" :key="p.id">
                     <a class="link-style" :href="'/problem/' + p._id">{{p._id}} - {{p.title}}</a>
@@ -50,7 +50,7 @@
             </Col>
             <Col  :span="12">
               <Panel shadow style="padding: 10px;padding-bottom: 10px;">
-                <div slot="title" style="margin-left: -10px 0px 0px -20px;">{{$t('m.TagsTitle')}}</div>
+                <div slot="title" style="margin-left: -10px 0px 0px -20px;"><Icon type="md-pricetags" /> {{$t('m.TagsTitle')}}</div>
                 <Button v-for="tag in tagList"
                         :key="tag.name"
                         :disabled="query.tag === tag.name"
@@ -78,17 +78,26 @@
         </Button>
       </Panel>
       <Panel shadow style="margin-top: 37px;padding-bottom: 5px;">
-        <div slot="title" style="margin-left: -10px;margin-bottom: -10px;">{{$t('m.Similar_Site')}}</div>
+        <div slot="title" style="margin-left: -10px;margin-bottom: -10px;"><Icon type="ios-link" /> {{$t('m.Similar_Site')}}</div>
         <ul style="margin-left: 40px;margin-bottom: 20px;">
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://oj.vnoi.info/?ref=luyencode', '_blank');">VNOJ: VNOI Online Judge (🇻🇳)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://freecontest.net/?ref=luyencode', '_blank');">Free Contest (🇻🇳)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('http://csloj.ddns.net/?ref=luyencode', '_blank');">Chuyên Sơn La Online Judge (🇻🇳)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('http://ntucoder.net/?ref=luyencode', '_blank');">NTUCoder (🇻🇳)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://codeforces.com/?ref=luyencode', '_blank');">Codeforces (🇬🇧)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://leetcode.com/?ref=luyencode', '_blank');">LeetCode (🇬🇧)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://discord.gg/hpeRrbccfZ', '_blank');">Luyện Code: Hỏi & Đáp trên Discord (😘)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://www.facebook.com/groups/LapTrinhKhongKho/', '_blank');">Nhóm Lập Trình Không Khó (😘)</a></li>
-          <li style="padding: 5px 0px;"><a href="#" class="link-style" onclick="event.preventDefault();window.open('https://nguyenvanhieu.vn/', '_blank');">Blog học Lập Trình Không Khó (😘)</a></li>
+          <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://oj.vnoi.info/?ref=luyencode', '_blank');">VNOJ: VNOI Online Judge (🇻🇳)</a></li>
+          <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://freecontest.net/?ref=luyencode', '_blank');">Free Contest (🇻🇳)</a></li>
+          <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('http://csloj.ddns.net/?ref=luyencode', '_blank');">Chuyên Sơn La Online Judge (🇻🇳)</a></li>
+          <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('http://ntucoder.net/?ref=luyencode', '_blank');">NTUCoder (🇻🇳)</a></li>
+          <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://codeforces.com/?ref=luyencode', '_blank');">Codeforces (🇬🇧)</a></li>
+          <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://leetcode.com/?ref=luyencode', '_blank');">LeetCode (🇬🇧)</a></li>
+          <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://discord.gg/hpeRrbccfZ', '_blank');">Luyện Code: Hỏi & Đáp trên Discord (😘)</a></li>
+          <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://www.facebook.com/groups/LapTrinhKhongKho/', '_blank');">Nhóm Lập Trình Không Khó (😘)</a></li>
+          <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://nguyenvanhieu.vn/', '_blank');">Blog học Lập Trình Không Khó (😘)</a></li>
+        </ul>
+      </Panel>
+      <Panel shadow style="margin-top: 37px;padding-bottom: 5px;">
+        <div slot="title" style="margin-left: -10px;margin-bottom: -10px;"><Icon type="md-stats" /> {{$t('m.Statistics')}}</div>
+        <ul style="margin-left: 40px;margin-bottom: 20px;">
+            <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();">Số lượng bài tập: {{problem_count}}</a></li>
+            <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();">Tổng số bài nộp: overflow</a></li>
+            <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();">Số lượng thành viên: {{infoData.user_count}}</a></li>
+            <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();">Số bài nộp hôm nay: {{infoData.today_submission_count}}</a></li>
         </ul>
       </Panel>
     </Col>
@@ -129,7 +138,15 @@
         nowWeek: '',
         nowDate: '',
         word: '',
-        days: 0
+        days: 0,
+        infoData: {
+          user_count: 0,
+          recent_contest_count: 0,
+          today_submission_count: 0,
+          judge_server_count: 0,
+          env: {}
+        },
+        problem_count: 0
       }
     },
     mounted () {
@@ -141,6 +158,7 @@
       this.isSighin()
       this.getProblemList()
       this.getTagList()
+      this.getDashboardInfo()
     },
     methods: {
       init () {
@@ -162,6 +180,7 @@
         let offset = 0
         api.getProblemList(offset, this.problemLimit, this.query).then(res => {
           this.problemList = res.data.data.results
+          this.problem_count = res.data.data.total
         })
       },
       getAnnouncementList (page = 1) {
@@ -181,6 +200,12 @@
           this.announcements = res.data.data
         }, () => {
           this.btnLoading = false
+        })
+      },
+      getDashboardInfo () {
+        api.getDashboardInfo().then(resp => {
+          this.infoData = resp.data.data
+        }, () => {
         })
       },
       goAnnouncement (announcement) {
@@ -317,8 +342,8 @@
     font-weight: 600;
   }
   .tag-btn {
-    margin-right: 10px;
-    margin-bottom: 20px;
+    margin-right: 5px;
+    margin-bottom: 10px;
   }
   .tag-btn:hover {
     a {
