@@ -125,7 +125,7 @@
           <li title="BOT của Luyện Code cũng sẽ thường xuyên kiểm duyệt nha"><span style="font-weight: 600;">KHÔNG NÊN</span> để lộ thông tin cá nhân (SĐT, email, Facebook, ...)</li>
           <li>Tham gia thảo luận bài tập tại
             <span style="position: relative;">
-              <a href="https://discord.gg/hpeRrbccfZ" target="_blank" style="position: absolute; left: 10px">
+              <a href="https://discord.gg/7YkXpAp7s8" target="_blank" style="position: absolute; left: 10px">
                 <img alt="Discord" src="https://img.shields.io/discord/879371214806712340?label=Discord&logo=Discord">
               </a>
             </span>
