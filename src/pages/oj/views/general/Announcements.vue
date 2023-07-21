@@ -78,6 +78,7 @@
         </Button>
       </Panel>
       <Panel shadow style="margin-top: 37px;padding-bottom: 5px;">
+        <!-- TODO: Sửa silimar site ở đây -->
         <div slot="title" style="margin-left: -10px;margin-bottom: -10px;"><Icon type="ios-link" /> {{$t('m.Similar_Site')}}</div>
         <ul style="margin-left: 40px;margin-bottom: 20px;">
           <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://oj.vnoi.info/?ref=luyencode', '_blank');">VNOJ: VNOI Online Judge (🇻🇳)</a></li>

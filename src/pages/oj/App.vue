@@ -8,7 +8,7 @@
       </transition>
       <div class="footer">
         <!-- <p v-html="website.website_footer"></p> -->
-        <p><strong>Luyện Code Online</strong> là website thực hành lập trình trực tuyến miễn phí với vô vàn <a href="/problem">bài tập</a>  ở đa dạng thể loại khác nhau.<br/>Bao gồm <a href="/problem?tag=cơ%20bản">bài tập cơ bản</a>, bài tập <a href="/problem?tag=%C4%91i%E1%BB%81u%20khi%E1%BB%83n">cấu trúc điều khiển</a>, các <a href="/problem?tag=vòng%20lặp">bài tập vòng lặp</a>, bài tập mảng (<a href="/problem?tag=mảng%201%20chiều">mảng 1 chiều</a>, <a href="/problem?tag=mảng%202%20chiều">mảng 2 chiều</a>, <a href="/problem?tag=chu%E1%BB%97i">bài tập chuỗi</a>), ...<br/>Bài tập cấu trúc dữ liệu (<a href="/problem?tag=ngăn%20xếp">ngăn xếp</a>, <a href="/problem?tag=hàng%20đợi">hàng đợi</a>, <a href="https://luyencode.net/problem?tag=b%E1%BA%A3ng%20b%C4%83m">bảng băm</a>, ...) và giải thuật (<a href="/problem?tag=s%E1%BA%AFp%20x%E1%BA%BFp">sắp xếp</a>, <a href="/problem?tag=chặt%20nhị%20phân">tìm kiếm</a>, <a href="/problem?tag=QH%C4%90">quy hoạch động</a>, ...) cùng nhiều bài tập nâng cao khác.</p>
+        <p><strong>Thực hành Code - ĐH Mở Hà Nội</strong> là website thực hành lập trình trực tuyến miễn phí với vô vàn <a href="/problem">bài tập</a>  ở đa dạng thể loại khác nhau.<br/>Bao gồm <a href="/problem?tag=cơ%20bản">bài tập cơ bản</a>, bài tập <a href="/problem?tag=%C4%91i%E1%BB%81u%20khi%E1%BB%83n">cấu trúc điều khiển</a>, các <a href="/problem?tag=vòng%20lặp">bài tập vòng lặp</a>, bài tập mảng (<a href="/problem?tag=mảng%201%20chiều">mảng 1 chiều</a>, <a href="/problem?tag=mảng%202%20chiều">mảng 2 chiều</a>, <a href="/problem?tag=chu%E1%BB%97i">bài tập chuỗi</a>), ...<br/>Bài tập cấu trúc dữ liệu (<a href="/problem?tag=ngăn%20xếp">ngăn xếp</a>, <a href="/problem?tag=hàng%20đợi">hàng đợi</a>, <a href="https://luyencode.net/problem?tag=b%E1%BA%A3ng%20b%C4%83m">bảng băm</a>, ...) và giải thuật (<a href="/problem?tag=s%E1%BA%AFp%20x%E1%BA%BFp">sắp xếp</a>, <a href="/problem?tag=chặt%20nhị%20phân">tìm kiếm</a>, <a href="/problem?tag=QH%C4%90">quy hoạch động</a>, ...) cùng nhiều bài tập nâng cao khác.</p>
         
         <div class="menu" style="margin-top: 10px;">
           <a href="/ide" title="Live IDE">Live IDE</a> &nbsp;&nbsp;-&nbsp;&nbsp;
@@ -16,7 +16,7 @@
           <a href="/judger" title="Thông tin máy chấm">Trình chấm</a> &nbsp;&nbsp;-&nbsp;&nbsp;
           <a href="/about" title="Về chúng tôi">Giới thiệu</a>
         </div>
-        <p> Copyright © 2020 <a href="/">Luyện Code Online</a> &nbsp;-&nbsp; Powered by <a target="_blank" rel="nofollow noopener noreferrer" href="https://github.com/luyencode/OnlineJudgeDeploy">OnlineJudge</a></p>
+        <p> Copyright © 2020 <a href="/">Thực hành Code - ĐH Mở Hà Nội</a> &nbsp;-&nbsp; Powered by <a target="_blank" rel="nofollow noopener noreferrer" href="https://github.com/luyencode/OnlineJudgeDeploy">OnlineJudge</a></p>
       </div>
     </div>
 	<BackTop></BackTop>

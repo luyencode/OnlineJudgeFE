@@ -2,8 +2,8 @@
   <div id="header">
     <Menu theme="light" mode="horizontal" @on-select="handleRoute" :active-name="activeMenu" :class="oj-menu">
       <!-- <div class="logo"><span>{{website.website_name}}</span></div> -->
-      <!-- <div class="logo" title="Luyện Code Online"><a href="/"><img src="/static/img/logo-ny.png" height="60px" alt="Luyện Code Online - Học lập trình tương tác trực tuyến"></a></div> -->
-      <div class="logo" title="Luyện Code Online"><a href="/"><img src="/static/img/logo.png" height="60px" alt="Luyện Code Online - Học lập trình tương tác trực tuyến"></a></div>
+      <!-- TODO: Sửa logo ở đây -->
+      <div class="logo" title="Thực hành Code - ĐH Mở Hà Nội"><a href="/"><img src="/static/img/logo.png" height="60px" alt="Thực hành Code - ĐH Mở Hà Nội"></a></div>
       <Menu-item name="/problem">
         <Icon type="ios-keypad"></Icon>
         {{$t('m.NavProblems')}}
@@ -31,7 +31,7 @@
           {{$t('m.Experience_Rank')}}
         </Menu-item>
       </Submenu>
-       <Submenu name="about">
+       <!-- <Submenu name="about">
         <template slot="title">
           <Icon type="md-information-circle"></Icon>
           {{$t('m.About')}}
@@ -45,7 +45,11 @@
         <Menu-item name="/FAQ">
           {{$t('m.FAQ')}}
         </Menu-item>
-      </Submenu>
+      </Submenu> -->
+      <Menu-item name="/ide" >
+        <Icon type="md-code"></Icon>
+        Live IDE
+      </Menu-item>
       <template v-if="!isAuthenticated">
         <div class="btn-menu">
           <Button
