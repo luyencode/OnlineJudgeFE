@@ -116,7 +116,7 @@
           </Col>
         </Row>
       </Card>
-      <Card :padding="20" dis-hover>
+      <!-- <Card :padding="20" dis-hover>
         <h3 style="font-size: 20px;">Bình luận</h3>
         <ul style="margin-left: 30px;margin-top: 20px;">
           <li><a rel="nofollow noopener noreferrer" target="_blank" class="animation-text" href="https://gist.github.com/nguyenvanhieuvn/d3e5e20c44ef9d565fa3d7b9ebabfc65">Quy tắc thảo luận &#38; hướng dẫn đăng bình luận ✍️</a></li>
@@ -132,7 +132,7 @@
           </li>
         </ul>
         <script type="application/javascript" src="https://utteranc.es/client.js" repo="luyencode/comments" issue-term="url" theme="github-light" crossorigin="anonymous" async> </script>
-      </Card>
+      </Card> -->
     </div>
     <div id="right-column">
       <VerticalMenu @on-click="handleRoute" style="cursor: pointer;">
