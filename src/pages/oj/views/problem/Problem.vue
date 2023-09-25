@@ -116,13 +116,13 @@
           </Col>
         </Row>
       </Card>
-      <Card :padding="20" dis-hover>
+      <!-- <Card :padding="20" dis-hover>
         <h3 style="font-size: 20px;">Bình luận</h3>
         <ul style="margin-left: 30px;margin-top: 20px;">
           <li><a rel="nofollow noopener noreferrer" target="_blank" class="animation-text" href="https://gist.github.com/nguyenvanhieuvn/d3e5e20c44ef9d565fa3d7b9ebabfc65">Quy tắc thảo luận &#38; hướng dẫn đăng bình luận ✍️</a></li>
           <li><span style="font-weight: 600;">NÊN</span> thảo luận giải pháp 😘, <span style="font-weight: 600;">KHÔNG NÊN</span> chia sẻ code 😐</li>
           <li title="Không khuyến khích các bạn chia sẻ lời giải nha">Mọi source code đăng mà không được ẩn sẽ bị BOT xóa tự động 😭</li>
-          <li title="BOT của Luyện Code cũng sẽ thường xuyên kiểm duyệt nha"><span style="font-weight: 600;">KHÔNG NÊN</span> để lộ thông tin cá nhân (SĐT, email, Facebook, ...)</li>
+          <li title="BOT của Luyện lập trình cũng sẽ thường xuyên kiểm duyệt nha"><span style="font-weight: 600;">KHÔNG NÊN</span> để lộ thông tin cá nhân (SĐT, email, Facebook, ...)</li>
           <li>Tham gia thảo luận bài tập tại
             <span style="position: relative;">
               <a href="https://discord.gg/hpeRrbccfZ" target="_blank" style="position: absolute; left: 10px">
@@ -132,7 +132,7 @@
           </li>
         </ul>
         <script type="application/javascript" src="https://utteranc.es/client.js" repo="luyencode/comments" issue-term="url" theme="github-light" crossorigin="anonymous" async> </script>
-      </Card>
+      </Card> -->
     </div>
     <div id="right-column">
       <VerticalMenu @on-click="handleRoute" style="cursor: pointer;">
@@ -236,9 +236,9 @@
           </li>
         </ul>
       </Card>
-      <Card style="margin-top: 20px;" :padding="10" v-if="!this.contestID || OIContestRealTimePermission">
+      <!-- <Card style="margin-top: 20px;" :padding="10" v-if="!this.contestID || OIContestRealTimePermission">
         <div slot="title" style="font-size: 16px;"><i data-v-20c86fbe="" class="ivu-icon ivu-icon-md-heart" style="color: red; font-size:1.2em;"></i>
-        <span class="card-title">Ủng hộ Luyện Code</span>
+        <span class="card-title">Ủng hộ Luyện lập trình</span>
         </div>
         Ủng hộ 10.000đ giúp chúng tôi phát triển website hơn nữa:
         <ul style="margin-left: 20px;margin-bottom: 10px;">
@@ -247,7 +247,7 @@
           <li style="padding: 5px 0px;"><span style="color: green;">Paypal</span>: <a style="color: #495060;" target="_blank" href="https://www.paypal.me/nguyenvanhieuvn">paypal.me/nguyenvanhieuvn</a></li>
         </ul>
         Nếu thấy website hữu ích, hãy chia sẻ tới bạn bè để cùng nhau học tập và tiến bộ mỗi ngày nhé!
-      </Card>
+      </Card> -->
     </div>
   
     <Modal v-model="graphVisible">

@@ -110,7 +110,7 @@ export const m = {
   last: 'ở cuối',
   About_presentation_error_answer_part_2: 'cùng. Nếu đáp án đã xử lý mà vẫn khác với kết quả bạn nhận được là',
   How_to_report_bugs: 'Làm sao để báo lỗi cho chúng tôi?',
-  How_to_report_bugs_answer_part_1: 'Trong trường hợp hệ thống luyện code này có lỗi phát sinh, bạn có thể báo lỗi tại',
+  How_to_report_bugs_answer_part_1: 'Trong trường hợp hệ thống luyện lập trình này có lỗi phát sinh, bạn có thể báo lỗi tại',
   How_to_report_bugs_answer_part_2: 'kèm thông tin chi tiết về lỗi (nếu có). Việc này sẽ giúp chúng tôi rất nhiều trong việc cải tiến hệ thống. Cảm ơn bạn vì đã đóng góp & sử dụng sản phẩm.',
   // Cancel.vue
   Cancel: 'Hủy bỏ',
@@ -269,7 +269,7 @@ export const m = {
   Real_Time: 'Thời gian thực',
   Signal: 'Signal',
   Ranklist_Title: '️️Coder tích cực️️',
-  Similar_Site: 'Liên kết hữu ích',
+  //Similar_Site: 'Liên kết hữu ích',
   Statistics: 'Thống kê',
   // SubmissionList.vue
   When: '#',
