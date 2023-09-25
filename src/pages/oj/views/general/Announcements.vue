@@ -77,7 +77,7 @@
             Ghi danh
         </Button>
       </Panel>
-      <Panel shadow style="margin-top: 37px;padding-bottom: 5px;">
+      <!-- <Panel shadow style="margin-top: 37px;padding-bottom: 5px;">
         <div slot="title" style="margin-left: -10px;margin-bottom: -10px;"><Icon type="ios-link" /> {{$t('m.Similar_Site')}}</div>
         <ul style="margin-left: 40px;margin-bottom: 20px;">
           <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://oj.vnoi.info/?ref=luyencode', '_blank');">VNOJ: VNOI Online Judge (🇻🇳)</a></li>
@@ -86,11 +86,11 @@
           <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('http://ntucoder.net/?ref=luyencode', '_blank');">NTUCoder (🇻🇳)</a></li>
           <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://codeforces.com/?ref=luyencode', '_blank');">Codeforces (🇬🇧)</a></li>
           <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://leetcode.com/?ref=luyencode', '_blank');">LeetCode (🇬🇧)</a></li>
-          <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://discord.gg/hpeRrbccfZ', '_blank');">Luyện Code: Hỏi & Đáp trên Discord (😘)</a></li>
+          <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://discord.gg/hpeRrbccfZ', '_blank');">Luyện lập trình: Hỏi & Đáp trên Discord (😘)</a></li>
           <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://www.facebook.com/groups/LapTrinhKhongKho/', '_blank');">Nhóm Lập Trình Không Khó (😘)</a></li>
           <li style="padding: 5px 0px;"><a href="" class="link-style" onclick="event.preventDefault();window.open('https://nguyenvanhieu.vn/', '_blank');">Blog học Lập Trình Không Khó (😘)</a></li>
         </ul>
-      </Panel>
+      </Panel> -->
       <Panel shadow style="margin-top: 37px;padding-bottom: 5px;">
         <div slot="title" style="margin-left: -10px;margin-bottom: -10px;"><Icon type="md-stats" /> {{$t('m.Statistics')}}</div>
         <ul style="margin-left: 40px;margin-bottom: 20px;">
